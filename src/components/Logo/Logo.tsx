@@ -1,9 +1,7 @@
-import LogoSvg from '../../assets/logo.svg?react';
+import LogoSvg from "@assets/logo.svg?react";
 
 const Logo = () => {
-    return (
-        <LogoSvg />
-    );
-}
+  return <LogoSvg />;
+};
 
 export default Logo;

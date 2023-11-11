@@ -1,9 +1,16 @@
-import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite'
 import svgr from 'vite-plugin-svgr'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), svgr()],
   base: '/landing-quiz/',
+  resolve: {
+    alias: {
+      '@components': '/src/components',
+      '@screens': '/src/screens',
+      '@assets': '/src/assets',
+    },
+  },
 })
