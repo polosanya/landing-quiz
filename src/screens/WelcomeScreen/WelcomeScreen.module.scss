@@ -1,29 +1,42 @@
-@import '@helpers/variables.scss';
+@import "@helpers/variables.scss";
 
 .WelcomeScreen {
-    padding: 17px 24px 16px;
+  padding: 17px 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+
+  &__logo {
+    align-self: center;
+  }
+
+  &__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+
+  &__strong {
+    color: $color-primary;
+    font-weight: inherit;
+  }
+
+  &__text {
+    font-size: 1.6rem;
+    font-weight: 300;
+    text-align: center;
+  }
+
+  &__question {
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1.1;
+    text-align: center;
+  }
+
+  &__answers {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 100%;
     gap: 1.2rem;
-
-    &__logo {
-        align-self: center;
-    }
-
-    &__title {
-        font-size: 2.5rem;
-        font-weight: 700;
-    }
-
-    &__strong {
-        color: $color-primary;
-        font-weight: inherit;
-    }
-
-    &__text {
-        font-size: 1.6rem;
-        font-weight: 300;
-        text-align: center;
-    }
+  }
 }

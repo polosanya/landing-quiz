@@ -1,0 +1,19 @@
+@import "@helpers/variables";
+
+.ButtonSecondary {
+  width: 100%;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.2;
+  padding: 1.45rem 1rem;
+  color: $color-text;
+  background-color: $color-snow;
+  border: 1px solid $color-secondary-stroke;
+  border-radius: 1rem;
+
+  transition: border-color $transition-duration;
+
+  &:active {
+    border-color: $color-primary;
+  }
+}
