@@ -1,5 +1,29 @@
+@import '@helpers/variables.scss';
+
 .WelcomeScreen {
+    padding: 17px 24px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+
     &__logo {
-        //
+        align-self: center;
+    }
+
+    &__title {
+        font-size: 2.5rem;
+        font-weight: 700;
+    }
+
+    &__strong {
+        color: $color-primary;
+        font-weight: inherit;
+    }
+
+    &__text {
+        font-size: 1.6rem;
+        font-weight: 300;
+        text-align: center;
     }
 }

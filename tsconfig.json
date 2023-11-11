@@ -5,6 +5,7 @@
       "@components/*": ["src/components/*"],
       "@screens/*": ["src/screens/*"],
       "@assets/*": ["src/assets/*"],
+      "@helpers/*": ["src/helpers/*"],
     },
     "target": "ES2020",
     "useDefineForClassFields": true,

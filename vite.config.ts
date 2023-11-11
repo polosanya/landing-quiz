@@ -11,6 +11,7 @@ export default defineConfig({
       '@components': '/src/components',
       '@screens': '/src/screens',
       '@assets': '/src/assets',
+      '@helpers': '/src/helpers',
     },
   },
 })
