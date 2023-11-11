@@ -1,0 +1,13 @@
+@import "@helpers/variables";
+
+.Chip {
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  padding: 0.3rem 0.6rem;
+  align-self: center;
+  color: $color-text;
+  background-color: $color-snow;
+  border-radius: 0.4rem;
+  box-shadow: 0px 2.10624px 10.53118px 0px rgba(0, 0, 0, 0.15);
+}

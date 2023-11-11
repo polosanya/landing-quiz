@@ -1,0 +1,53 @@
+@import "@helpers/variables";
+
+.Chart {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__title {
+    max-width: 40%;
+    text-align: left;
+    color: $color-grey;
+    font-weight: 300;
+    font-size: 1.2rem;
+  }
+
+  &__chipTop {
+    position: absolute;
+    right: 4%;
+    top: -20%;
+    // transform: translateY(-50%);
+  }
+
+  &__chipBottom {
+    position: absolute;
+    left: 5%;
+    bottom: 45%;
+  }
+
+  &__image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.5);
+    }
+  }
+
+  &__footer {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0.4rem 0.6rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+}

@@ -1,5 +1,6 @@
 import Logo from "@components/Logo";
 import styles from "./WelcomeScreen.module.scss";
+import Chart from "@components/Chart";
 
 const WelcomeScreen = () => {
   return (
@@ -7,16 +8,19 @@ const WelcomeScreen = () => {
       <Logo className={styles.WelcomeScreen__logo} />
 
       <h1 className={styles.WelcomeScreen__title}>
-        Change your <strong className={styles.WelcomeScreen__strong}>love life</strong>
+        Change your{" "}
+        <strong className={styles.WelcomeScreen__strong}>love life</strong>
       </h1>
 
       <p className={styles.WelcomeScreen__text}>
         with easy-to-use practical tips that you can apply in any situation
       </p>
 
-      <p>&#128588;</p>
+      <Chart />
 
-      <p>&#x1F64C;</p>
+      <h2 className={styles.WelcomeScreen__question}>
+        What is your relationship status?
+      </h2>
     </div>
   );
 };
