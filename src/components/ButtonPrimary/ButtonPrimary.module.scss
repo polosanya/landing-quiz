@@ -1,0 +1,22 @@
+@import "@helpers/variables";
+
+.button {
+  width: 100%;
+  height: 5rem;
+  font-size: 1.8rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: $color-snow;
+  border: none;
+  background-color: $color-primary;
+  border-radius: 1rem;
+  cursor: pointer;
+
+  transition-property: color, background-color;
+  transition-duration: $transition-duration;
+
+  &:disabled {
+    background-color: $color-secondary-bg;
+    color: $color-secondary-text;
+  }
+}
