@@ -42,6 +42,7 @@
   &.selected {
     background-image: url("@assets/checkmark.svg");
     background-position: 50%;
+    background-size: cover;
     background-color: $color-primary;
     border-color: $color-primary;
   }

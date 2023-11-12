@@ -1,5 +1,6 @@
 @import '@helpers/variables.scss';
 @import '@helpers/normalize.scss';
+@import '@helpers/mixins.scss';
 
 :root {
   font-family: 'Nunito', Arial, sans-serif;
@@ -9,6 +10,14 @@
   color: $color-text;
   background-color: $color-bg;
 
+  @include tablet {
+    font-size: 15px;
+  }
+
+  @include desktop {
+    font-size: 20px;
+  }
+ 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -18,6 +27,7 @@
 
 h1, h2, h3, p {
   margin: 0;
+  text-align: center;
 }
 
 * {
@@ -37,6 +47,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  padding: 1.7rem 2.4rem 1.6rem;
 }
 
 // h1 {

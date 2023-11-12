@@ -4,6 +4,7 @@ import { FC, useState } from "react";
 import Option from "@components/Option";
 import ButtonPrimary from "@components/ButtonPrimary";
 import Navigation from "@components/Navigation";
+import EmailScreen from "@screens/EmailScreen";
 
 type Props = {
   questions: Question[];
@@ -14,6 +15,7 @@ const QuizScreen: FC<Props> = ({ questions, onExit }) => {
   // const statistics = useRef({});
   const [currentQuestion, setCurrentQuestion] = useState(questions[0]);
   const [selectedOptions, setSelectedOptions] = useState<Answer[]>([]);
+  const [isCompleted, setIsCompleted] = useState(false);
 
   const handleSelect = (option: Answer, isSelected: boolean) => {
     return () => {
@@ -42,7 +44,7 @@ const QuizScreen: FC<Props> = ({ questions, onExit }) => {
     setSelectedOptions([]);
 
     if (currentQuestion.id === questions.length) {
-      console.log("Finish");
+      setIsCompleted(true);
       // you can send the statistics somewhere if needed;
     } else {
       setCurrentQuestion((prevValue) => questions[prevValue.id]);
@@ -50,37 +52,43 @@ const QuizScreen: FC<Props> = ({ questions, onExit }) => {
   };
 
   return (
-    <div className={styles.QuizScreen}>
-      <Navigation
-        total={questions.length}
-        current={currentQuestion.id}
-        onBack={handleBack}
-      />
-
-      <h1>
-        {currentQuestion.text} {currentQuestion.id}
-      </h1>
-
-      {currentQuestion.options.map((option) => {
-        const isSelected = selectedOptions?.includes(option);
-
-        return (
-          <Option
-            key={option.id}
-            text={option.text}
-            emoji={option.emoji}
-            checked={isSelected}
-            onChecked={handleSelect(option, isSelected)}
+    <>
+      {isCompleted ? (
+        <EmailScreen />
+      ) : (
+        <div className={styles.QuizScreen}>
+          <Navigation
+            total={questions.length}
+            current={currentQuestion.id}
+            onBack={handleBack}
           />
-        );
-      })}
 
-      <ButtonPrimary
-        text="Continue"
-        disabled={selectedOptions.length === 0}
-        onClick={handleContinue}
-      />
-    </div>
+          <h1>
+            {currentQuestion.text} {currentQuestion.id}
+          </h1>
+
+          {currentQuestion.options.map((option) => {
+            const isSelected = selectedOptions?.includes(option);
+
+            return (
+              <Option
+                key={option.id}
+                text={option.text}
+                emoji={option.emoji}
+                checked={isSelected}
+                onChecked={handleSelect(option, isSelected)}
+              />
+            );
+          })}
+
+          <ButtonPrimary
+            text="Continue"
+            disabled={selectedOptions.length === 0}
+            onClick={handleContinue}
+          />
+        </div>
+      )}
+    </>
   );
 };
 
