@@ -3,25 +3,26 @@ import styles from "./EmailScreen.module.scss";
 import ButtonPrimary from "@components/ButtonPrimary";
 import Input from "@components/Input";
 import { useState } from "react";
+import Policy from "@components/Policy";
 
 const EmailScreen = () => {
   const [email, setEmail] = useState("");
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
-  let validationTimeout: number; 
+  let validationTimeout: number;
 
   const validateEmail = (value: string) => {
     const emailValidationRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
     const isValuePresent = Boolean(value.trim());
     const isFormatCorrect = value.match(emailValidationRegex);
-    
+
     if (!isValuePresent) {
       setError("Please enter email");
     } else if (!isFormatCorrect) {
       setError("Email should have the correct form");
     } else if (isValuePresent && isFormatCorrect) {
-      setError('');
-    } 
+      setError("");
+    }
   };
 
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -39,9 +40,9 @@ const EmailScreen = () => {
     if (!email) {
       validateEmail(email);
     } else {
-      console.log(`Submitted ${email}`)
+      console.log(`Submitted ${email}`);
     }
-  }
+  };
 
   return (
     <div className={styles.page}>
@@ -60,6 +61,11 @@ const EmailScreen = () => {
       />
 
       <ButtonPrimary text="Get results" onClick={handleSubmit} />
+
+      <Policy>
+        We respect your privacy and are committed to protecting your personal
+        data. We’ll email you a copy of your results for convenient access.
+      </Policy>
     </div>
   );
 };
