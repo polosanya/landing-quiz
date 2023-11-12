@@ -20,7 +20,7 @@ const App = () => {
 
       const fetchData = async () => {
         try {
-          const response = await fetch(`/src/api/questions${endpoint}.json`);
+          const response = await fetch(`landing-quiz/src/api/questions${endpoint}.json`);
           if (!response.ok) {
             throw new Error('Network response was not ok');
           }
