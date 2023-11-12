@@ -12,6 +12,7 @@ export default defineConfig({
       '@screens': '/src/screens',
       '@assets': '/src/assets',
       '@helpers': '/src/helpers',
+      '@api': '/src/api'
     },
   },
 })
