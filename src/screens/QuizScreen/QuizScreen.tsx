@@ -1,16 +1,17 @@
 import { Answer, Question } from "@helpers/types";
 import styles from "./QuizScreen.module.scss";
-import { FC, useRef, useState } from "react";
+import { FC, useState } from "react";
 import Option from "@components/Option";
 import ButtonPrimary from "@components/ButtonPrimary";
 import Navigation from "@components/Navigation";
 
 type Props = {
   questions: Question[];
+  onExit: () => void;
 };
 
-const QuizScreen: FC<Props> = ({ questions }) => {
-  const statistics = useRef({});
+const QuizScreen: FC<Props> = ({ questions, onExit }) => {
+  // const statistics = useRef({});
   const [currentQuestion, setCurrentQuestion] = useState(questions[0]);
   const [selectedOptions, setSelectedOptions] = useState<Answer[]>([]);
 
@@ -24,18 +25,25 @@ const QuizScreen: FC<Props> = ({ questions }) => {
     };
   };
 
-  const handleContinue = () => {
-    statistics.current = {
-      ...statistics.current,
-      [`${currentQuestion.id}: ${currentQuestion.text}`]: selectedOptions,
+  const handleBack = () => {
+    if (currentQuestion.id === 1) {
+      onExit();
+    } else {
+      setCurrentQuestion((prevValue) => questions[prevValue.id - 2]);
+      setSelectedOptions([]);
     }
+  };
+
+  const handleContinue = () => {
+    // statistics.current = {
+    //   ...statistics.current,
+    //   [`${currentQuestion.id}: ${currentQuestion.text}`]: selectedOptions,
+    // }
     setSelectedOptions([]);
-    
+
     if (currentQuestion.id === questions.length) {
-      console.log("FINISH", statistics.current);
+      console.log("Finish");
       // you can send the statistics somewhere if needed;
-
-
     } else {
       setCurrentQuestion((prevValue) => questions[prevValue.id]);
     }
@@ -43,7 +51,11 @@ const QuizScreen: FC<Props> = ({ questions }) => {
 
   return (
     <div className={styles.QuizScreen}>
-      <Navigation />
+      <Navigation
+        total={questions.length}
+        current={currentQuestion.id}
+        onBack={handleBack}
+      />
 
       <h1>
         {currentQuestion.text} {currentQuestion.id}

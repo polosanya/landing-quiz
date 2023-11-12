@@ -7,9 +7,15 @@ import { MaritalStatus, Question } from '@helpers/types';
 const App = () => {
   const [status, setStatus] = useState<MaritalStatus>(MaritalStatus.Unknown);
   const [questions, setQuestions] = useState<Question[] | null>(null);
+  // const [isDataCollected, setIsDataCollected] = useState(false);
 
   const handleChoose = (value: MaritalStatus) => {
     setStatus(value);
+  }
+
+  const handleExit = () => {
+    setStatus(MaritalStatus.Unknown);
+    setQuestions(null);
   }
 
   useEffect(() => {
@@ -39,9 +45,11 @@ const App = () => {
 
   return (
     <>
+      {/* {isDataCollected} */}
+
       {status === MaritalStatus.Unknown || questions === null
         ? <WelcomeScreen onChoose={handleChoose} />
-        : <QuizScreen questions={questions} />
+        : <QuizScreen questions={questions} onExit={handleExit} />
       }
     </>
   )

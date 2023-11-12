@@ -1,0 +1,26 @@
+@import '@helpers/variables.scss';
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.count {
+  font-size: 1.6rem;
+  font-weight: 700;
+
+  & .current {
+    color: $color-primary
+  }
+
+  & .total {
+    color: $color-text;
+  }
+}

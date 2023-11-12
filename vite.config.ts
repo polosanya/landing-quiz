@@ -6,6 +6,13 @@ import svgr from 'vite-plugin-svgr'
 export default defineConfig({
   plugins: [react(), svgr()],
   base: '/landing-quiz/',
+  css: {
+    preprocessorOptions: {
+      scss: {
+        modules: true,
+      },
+    },
+  },
   resolve: {
     alias: {
       '@components': '/src/components',
