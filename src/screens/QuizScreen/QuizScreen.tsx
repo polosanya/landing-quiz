@@ -1,6 +1,7 @@
 import { Answer, Question } from "@helpers/types";
 import styles from "./QuizScreen.module.scss";
 import { FC, useRef, useState } from "react";
+import Option from "@components/Option";
 
 type Props = {
   questions: Question[];
@@ -11,10 +12,8 @@ const QuizScreen: FC<Props> = ({ questions }) => {
   const [currentQuestion, setCurrentQuestion] = useState(questions[0]);
   const [selectedOptions, setSelectedOptions] = useState<Answer[]>([]);
 
-  const handleSelect = (option: Answer) => {
+  const handleSelect = (option: Answer, isSelected: boolean) => {
     return () => {
-      const isSelected = selectedOptions?.includes(option);
-
       setSelectedOptions((prevValues) =>
         isSelected
           ? prevValues.filter((value) => value !== option)
@@ -47,14 +46,13 @@ const QuizScreen: FC<Props> = ({ questions }) => {
         const isSelected = selectedOptions?.includes(option);
 
         return (
-          <button
-            className={styles.QuizScreen__option}
-            style={{ backgroundColor: `${isSelected ? "red" : "white"}` }}
+          <Option
             key={option.id}
-            onClick={handleSelect(option)}
-          >
-            {option.text}
-          </button>
+            text={option.text}
+            emoji={option.emoji}
+            checked={isSelected}
+            onChecked={handleSelect(option, isSelected)}
+          />
         );
       })}
 
