@@ -1,6 +1,6 @@
 import { Answer, Question } from "@helpers/types";
 import styles from "./QuizScreen.module.scss";
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, useRef, useState } from "react";
 
 type Props = {
   questions: Question[];
