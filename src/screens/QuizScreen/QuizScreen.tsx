@@ -5,6 +5,7 @@ import Option from "@components/Option";
 import ButtonPrimary from "@components/ButtonPrimary";
 import Navigation from "@components/Navigation";
 import EmailScreen from "@screens/EmailScreen";
+import Footer from "@components/Footer";
 
 type Props = {
   questions: Question[];
@@ -82,11 +83,13 @@ const QuizScreen: FC<Props> = ({ questions, onExit, onSubmit }) => {
             );
           })}
 
-          <ButtonPrimary
-            text="Continue"
-            disabled={selectedOptions.length === 0}
-            onClick={handleContinue}
-          />
+          <Footer>
+            <ButtonPrimary
+              text="Continue"
+              disabled={selectedOptions.length === 0}
+              onClick={handleContinue}
+            />
+          </Footer>
         </div>
       )}
     </>

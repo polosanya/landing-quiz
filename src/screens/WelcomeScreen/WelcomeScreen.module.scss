@@ -8,10 +8,6 @@
   gap: 1.2rem;
 }
 
-html body {
-  padding-bottom: 0;
-}
-
 .logo {
   align-self: center;
 }
@@ -38,17 +34,6 @@ html body {
   @include heightL {
     margin: 4.8rem 0 7rem;
   }
-}
-
-.footer {
-  position: sticky;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  bottom: 0;
-  padding: 2rem 2.4rem 1.6rem;
-  width: 100%;
-  background: $color-bg-linear;
 }
 
 .question {

@@ -11,8 +11,9 @@ $color-error: #EF6A72;
 $color-bg-linear: linear-gradient(180deg, rgba(250, 249, 255, 0.00) 0%, $color-bg 12.16%);
 
 // breakpoints
-$mobileM: 320px;
-$mobileL: 480px;
+$width-tablet: 768px;
+$width-desktop: 1024px;
+$heightL: 580px;
 
 //animations 
 $transition-duration: 0.3s

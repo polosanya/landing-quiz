@@ -1,0 +1,28 @@
+@import '@helpers/variables.scss';
+@import '@helpers/mixins.scss';
+
+html body {
+  padding-bottom: 0;
+
+  // @include heightL {
+  //   padding-bottom: 1.6rem;
+  // }
+}
+
+.footer {
+  position: -webkit-sticky;
+  position: sticky;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  bottom: 0;
+  width: 100%;
+  padding: 2rem 0 1.6rem;
+  left: 2.4rem;
+  right: 2.4rem;
+  background: $color-bg-linear;
+
+  // @include heightL {
+  //   padding: 0;
+  // }
+}

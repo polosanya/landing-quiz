@@ -1,17 +1,19 @@
+@import '@helpers/variables.scss';
+
 @mixin tablet {
-  @media (min-width: 768px) {
+  @media (min-width: $width-tablet) {
     @content;
   }
 }
 
 @mixin desktop {
-  @media (min-width: 1024px) {
+  @media (min-width: $width-desktop) {
     @content;
   }
 }
 
 @mixin heightL {
-  @media (min-height: 580px) {
+  @media (min-height: $heightL) {
     @content;
   }
 }
