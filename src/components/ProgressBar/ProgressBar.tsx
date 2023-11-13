@@ -1,4 +1,3 @@
-import ButtonPrimary from "@components/ButtonPrimary";
 import { useState, useEffect, FC } from "react";
 import styles from "./ProgressBar.module.scss";
 import Popup from "@components/Popup";
@@ -44,10 +43,10 @@ const ProgressBar: FC<Props> = ({ onFinish, isActive, label }) => {
 
   return (
     <div className={styles.container}>
-      <p className={styles.text}>
+      <div className={styles.text}>
         <h3 className={styles.title}>{label}</h3>
         <span className={styles.count}>{count}%</span>
-      </p>
+      </div>
 
       <div className={styles.shell}>
         <div style={{ width: `${count}%` }} className={styles.progress} />

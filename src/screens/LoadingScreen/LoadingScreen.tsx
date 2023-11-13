@@ -5,6 +5,8 @@ import progressBars from "../../../public/data/progressBars.json";
 import ProgressBar from "@components/ProgressBar";
 import { useState } from "react";
 import Logo from "@components/Logo";
+import Slideshow from "@components/Slideshow";
+import Footer from "@components/Footer";
 
 const LoadingScreen = () => {
   const [activeProgressBarId, setActiveProgressBarId] = useState(1);
@@ -29,6 +31,10 @@ const LoadingScreen = () => {
           />
         );
       })}
+
+      <Footer>
+        <Slideshow />
+      </Footer>
     </article>
   );
 };

@@ -1,0 +1,41 @@
+@import '@helpers/variables.scss';
+
+.review {
+  width: 100%;
+  padding: 1.2rem 1.6rem;
+  background-color: $color-snow;
+  border: 1px solid $color-secondary-stroke;
+  border-radius: 1rem;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $color-grey;
+  margin-bottom: 0.8rem;
+}
+
+.author {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.count {
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+.rating {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.text {
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: $color-text;
+  text-wrap: balance;
+  text-align: start;
+}

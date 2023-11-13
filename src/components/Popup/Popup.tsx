@@ -1,4 +1,4 @@
-import { FC, ReactNode } from "react";
+import { FC } from "react";
 import styles from "./Popup.module.scss";
 import ButtonSecondary from "@components/ButtonSecondary";
 
@@ -14,7 +14,7 @@ const Popup: FC<Props> = ({ onClose}) => {
         <span className={styles.hint}>
           To move forward, specify
         </span>
-        
+
         <h2 className={styles.title}>
           Have you tried changing your love life before?
         </h2>
