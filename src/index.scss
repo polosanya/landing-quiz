@@ -1,9 +1,9 @@
-@import '@helpers/variables.scss';
-@import '@helpers/normalize.scss';
-@import '@helpers/mixins.scss';
+@import "@helpers/variables.scss";
+@import "@helpers/normalize.scss";
+@import "@helpers/mixins.scss";
 
 :root {
-  font-family: 'Nunito', Arial, sans-serif;
+  font-family: "Nunito", Arial, sans-serif;
   line-height: 1.2;
   font-weight: 800;
   font-size: 10px;
@@ -17,7 +17,7 @@
   @include desktop {
     font-size: 20px;
   }
- 
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -25,7 +25,10 @@
   -webkit-text-size-adjust: 100%;
 }
 
-h1, h2, h3, p {
+h1,
+h2,
+h3,
+p {
   margin: 0;
   text-align: center;
 }
@@ -50,10 +53,11 @@ body {
   padding: 1.7rem 2.4rem 1.6rem;
 }
 
-// h1 {
-//   font-size: 3.2em;
-//   line-height: 1.1;
-// }
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
 
 /* button {
   border-radius: 8px;

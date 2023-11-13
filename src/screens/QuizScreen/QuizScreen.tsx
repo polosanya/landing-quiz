@@ -9,9 +9,10 @@ import EmailScreen from "@screens/EmailScreen";
 type Props = {
   questions: Question[];
   onExit: () => void;
+  onSubmit: () => void;
 };
 
-const QuizScreen: FC<Props> = ({ questions, onExit }) => {
+const QuizScreen: FC<Props> = ({ questions, onExit, onSubmit }) => {
   // const statistics = useRef({});
   const [currentQuestion, setCurrentQuestion] = useState(questions[0]);
   const [selectedOptions, setSelectedOptions] = useState<Answer[]>([]);
@@ -54,7 +55,7 @@ const QuizScreen: FC<Props> = ({ questions, onExit }) => {
   return (
     <>
       {isCompleted ? (
-        <EmailScreen />
+        <EmailScreen onSubmit={onSubmit} />
       ) : (
         <div className={styles.QuizScreen}>
           <Navigation

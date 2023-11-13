@@ -2,10 +2,14 @@ import Logo from "@components/Logo";
 import styles from "./EmailScreen.module.scss";
 import ButtonPrimary from "@components/ButtonPrimary";
 import Input from "@components/Input";
-import { useState } from "react";
+import { FC, useState } from "react";
 import Policy from "@components/Policy";
 
-const EmailScreen = () => {
+type Props = {
+  onSubmit: () => void;
+}
+
+const EmailScreen: FC<Props> = ({ onSubmit }) => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
 
@@ -37,10 +41,10 @@ const EmailScreen = () => {
   };
 
   const handleSubmit = () => {
-    if (!email) {
+    if (!email || error) {
       validateEmail(email);
     } else {
-      console.log(`Submitted ${email}`);
+      onSubmit();
     }
   };
 
