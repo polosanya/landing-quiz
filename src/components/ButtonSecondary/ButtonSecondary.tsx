@@ -3,7 +3,7 @@ import styles from "./ButtonSecondary.module.scss";
 import { MaritalStatus } from "@helpers/types";
 
 type Props = {
-  text: MaritalStatus;
+  text: string;
   onClick: (value: MaritalStatus) => void;
 };
 

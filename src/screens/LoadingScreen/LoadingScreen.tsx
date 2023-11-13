@@ -4,6 +4,7 @@ import progressBars from "../../../public/data/progressBars.json";
 
 import ProgressBar from "@components/ProgressBar";
 import { useState } from "react";
+import Logo from "@components/Logo";
 
 const LoadingScreen = () => {
   const [activeProgressBarId, setActiveProgressBarId] = useState(1);
@@ -13,23 +14,22 @@ const LoadingScreen = () => {
   };
 
   return (
-    <>
-      <h1>Loading...</h1>
+    <article className={styles.screen}>
+      <Logo />
 
-      <h2>Development in progress</h2>
+      <h1>We are crafting your personalized plan</h1>
 
-      <div className={styles.container}>
-        {progressBars.progressBars.map((bar) => {
-          return (
-            <ProgressBar
-              key={bar.id}
-              onFinish={handleProgressBarComplete}
-              isActive={activeProgressBarId === bar.id}
-            />
-          );
-        })}
-      </div>
-    </>
+      {progressBars.progressBars.map((bar) => {
+        return (
+          <ProgressBar
+            label={bar.text}
+            key={bar.id}
+            onFinish={handleProgressBarComplete}
+            isActive={activeProgressBarId === bar.id}
+          />
+        );
+      })}
+    </article>
   );
 };
 

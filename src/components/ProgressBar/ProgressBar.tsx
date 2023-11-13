@@ -1,13 +1,15 @@
 import ButtonPrimary from "@components/ButtonPrimary";
 import { useState, useEffect, FC } from "react";
 import styles from "./ProgressBar.module.scss";
+import Popup from "@components/Popup";
 
 type Props = {
   onFinish: () => void;
   isActive: boolean;
+  label: string;
 };
 
-const ProgressBar: FC<Props> = ({ onFinish, isActive }) => {
+const ProgressBar: FC<Props> = ({ onFinish, isActive, label }) => {
   const [count, setCount] = useState(0);
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -31,7 +33,7 @@ const ProgressBar: FC<Props> = ({ onFinish, isActive }) => {
       } else {
         clearInterval(interval);
       }
-    }, 50);
+    }, 30);
 
     return () => clearInterval(interval);
   }, [isActive, isModalVisible, onFinish]);
@@ -41,17 +43,20 @@ const ProgressBar: FC<Props> = ({ onFinish, isActive }) => {
   };
 
   return (
-    <>
+    <div className={styles.container}>
+      <p className={styles.text}>
+        <h3 className={styles.title}>{label}</h3>
+        <span className={styles.count}>{count}%</span>
+      </p>
+
       <div className={styles.shell}>
         <div style={{ width: `${count}%` }} className={styles.progress} />
-
-        {count}%
       </div>
 
-      {isModalVisible && count !== 100 && (
-        <ButtonPrimary text="Click on me" onClick={closeModal} />
+      {isModalVisible && (
+        <Popup onClose={closeModal} />
       )}
-    </>
+    </div>
   );
 };
 

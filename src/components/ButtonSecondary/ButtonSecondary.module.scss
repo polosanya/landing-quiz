@@ -14,6 +14,10 @@
 
   transition: border-color $transition-duration;
 
+  &:hover {
+    border-color: $color-primary;
+  }
+
   &:active {
     border-color: $color-primary;
   }
