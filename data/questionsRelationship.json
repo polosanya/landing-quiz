@@ -39,6 +39,16 @@
             "id": 3, 
             "text": "Skill3_relationship",
             "emoji": "0x1F609"
+          },
+          {
+            "id": 4, 
+            "text": "Skill4_relationship",
+            "emoji": "0x1F609"
+          },
+          {
+            "id": 5, 
+            "text": "Skill5_relationship",
+            "emoji": "0x1F609"
           }
         ]
       },

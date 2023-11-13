@@ -39,6 +39,16 @@
             "id": 3, 
             "text": "Skill3_single",
             "emoji": "0x1F609"
+          },
+          {
+            "id": 4, 
+            "text": "Skill4_single",
+            "emoji": "0x1F609"
+          },
+          {
+            "id": 5, 
+            "text": "Skill5_single",
+            "emoji": "0x1F609"
           }
         ]
       },
