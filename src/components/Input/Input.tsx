@@ -7,6 +7,8 @@ type Props = {
   placeholder?: string;
   required?: boolean;
   validationError: string;
+  name?: string;
+  autoComplete?: string;
 };
 
 const Input: FC<Props> = ({
@@ -14,14 +16,14 @@ const Input: FC<Props> = ({
   onChange,
   placeholder = "example@gmail.com",
   validationError = "",
+  name = "email",
+  autoComplete = "email",
 }) => {
   const [isTouched, setIsTouched] = useState(false);
 
   const handleTouched = () => {
     setIsTouched(true);
   }
-
-  console.log(validationError);
 
   return (
     <label className={styles.label}>
@@ -31,6 +33,8 @@ const Input: FC<Props> = ({
         className={`${styles.input} ${validationError && styles.error}`}
         placeholder={placeholder}
         onFocus={handleTouched}
+        name={name}
+        autoComplete={autoComplete}
       />
 
       {validationError && isTouched && (

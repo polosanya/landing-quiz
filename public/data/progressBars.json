@@ -1,0 +1,20 @@
+{
+  "progressBars": [
+    {
+      "id": 1,
+      "text": "Setting goals"
+    },
+    {
+      "id": 2,
+      "text": "Adapting growth areas"
+    },
+    {
+      "id": 3,
+      "text": "Picking content"
+    },
+    {
+      "id": 4,
+      "text": "Prioritizing challenges"
+    }
+  ]
+}
