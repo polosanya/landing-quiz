@@ -7,17 +7,17 @@
           {
             "id": 1, 
             "text": "Skill1_single",
-            "emoji": "&#128588;"
+            "emoji": "0x1F609"
           },
           {
             "id": 2, 
             "text": "Skill2_single",
-            "emoji": "&#128588;"
+            "emoji": "0x1F609"
           },
           {
             "id": 3, 
             "text": "Skill3_single",
-            "emoji": "&#128588;"
+            "emoji": "0x1F609"
           }
         ]
       },
@@ -28,17 +28,17 @@
           {
             "id": 1, 
             "text": "Skill1_single",
-            "emoji": "&#128588;"
+            "emoji": "0x1F609"
           },
           {
             "id": 2, 
             "text": "Skill2_single",
-            "emoji": "&#128588;"
+            "emoji": "0x1F609"
           },
           {
             "id": 3, 
             "text": "Skill3_single",
-            "emoji": "&#128588;"
+            "emoji": "0x1F609"
           }
         ]
       },
@@ -49,17 +49,17 @@
           {
             "id": 1, 
             "text": "Skill1_single",
-            "emoji": "&#128588;"
+            "emoji": "0x1F609"
           },
           {
             "id": 2, 
             "text": "Skill2_single",
-            "emoji": "&#128588;"
+            "emoji": "0x1F609"
           },
           {
             "id": 3, 
             "text": "Skill3_single",
-            "emoji": "&#128588;"
+            "emoji": "0x1F609"
           }
         ]
       }
