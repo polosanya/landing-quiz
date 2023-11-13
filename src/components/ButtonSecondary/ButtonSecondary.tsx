@@ -1,10 +1,11 @@
 import { FC } from "react";
 import styles from "./ButtonSecondary.module.scss";
-import { MaritalStatus } from "@helpers/types";
+// import { MaritalStatus } from "@helpers/types";
 
 type Props = {
   text: string;
-  onClick: (value: MaritalStatus) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onClick: (value: any) => void;
 };
 
 const ButtonSecondary: FC<Props> = ({ text, onClick }) => {
