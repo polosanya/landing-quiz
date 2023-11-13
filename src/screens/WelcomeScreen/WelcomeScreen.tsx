@@ -11,27 +11,26 @@ type Props = {
 
 const WelcomeScreen: FC<Props> = ({ onChoose }) => {
   return (
-    <div className={styles.WelcomeScreen}>
-      <Logo className={styles.WelcomeScreen__logo} />
+    <div className={styles.screen}>
+      <Logo className={styles.logo} />
 
-      <h1 className={styles.WelcomeScreen__title}>
-        Change your{" "}
-        <strong className={styles.WelcomeScreen__strong}>love life</strong>
+      <h1 className={styles.title}>
+        Change your <strong className={styles.strong}>love life</strong>
       </h1>
 
-      <p className={styles.WelcomeScreen__text}>
+      <p className={styles.text}>
         with easy-to-use practical tips that you can apply in any situation
       </p>
 
-      <Chart />
+      <Chart className={styles.chart} />
 
-      <h2 className={styles.WelcomeScreen__question}>
-        What is your relationship status?
-      </h2>
+      <div className={styles.footer}>
+        <h2 className={styles.question}>What is your relationship status?</h2>
 
-      <div className={styles.WelcomeScreen__answers}>
-        <ButtonSecondary text={MaritalStatus.Single} onClick={onChoose} />
-        <ButtonSecondary text={MaritalStatus.Relation} onClick={onChoose} />
+        <div className={styles.answers}>
+          <ButtonSecondary text={MaritalStatus.Single} onClick={onChoose} />
+          <ButtonSecondary text={MaritalStatus.Relation} onClick={onChoose} />
+        </div>
       </div>
     </div>
   );

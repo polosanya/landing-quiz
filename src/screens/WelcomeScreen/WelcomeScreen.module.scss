@@ -1,41 +1,65 @@
 @import "@helpers/variables.scss";
+@import "@helpers/mixins.scss";
 
-.WelcomeScreen {
+.screen {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.2rem;
+}
 
-  &__logo {
-    align-self: center;
-  }
+html body {
+  padding-bottom: 0;
+}
 
-  &__title {
-    font-size: 2.5rem;
-    font-weight: 700;
-  }
+.logo {
+  align-self: center;
+}
 
-  &__strong {
-    color: $color-primary;
-    font-weight: inherit;
-  }
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
 
-  &__text {
-    font-size: 1.6rem;
-    font-weight: 300;
-    text-align: center;
-  }
+.strong {
+  color: $color-primary;
+  font-weight: inherit;
+}
 
-  &__question {
-    font-size: 1.8rem;
-    font-weight: 700;
-    line-height: 1.1;
-    text-align: center;
-  }
+.text {
+  font-size: 1.6rem;
+  font-weight: 300;
+  text-align: center;
+}
 
-  &__answers {
-    display: flex;
-    width: 100%;
-    gap: 1.2rem;
+.chart {
+  margin: 0.8rem 0;
+
+  @include heightL {
+    margin: 4.8rem 0 7rem;
   }
+}
+
+.footer {
+  position: sticky;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  bottom: 0;
+  padding: 2rem 2.4rem 1.6rem;
+  width: 100%;
+  background: $color-bg-linear;
+}
+
+.question {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.answers {
+  display: flex;
+  width: 100%;
+  gap: 1.2rem;
 }

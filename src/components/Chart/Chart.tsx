@@ -1,10 +1,15 @@
 import ChartSvg from "@assets/chart.svg?react";
 import styles from "./Chart.module.scss";
 import Chip from "@components/Chip";
+import { FC } from "react";
 
-const Chart = () => {
+type Props = {
+  className: string;
+}
+
+const Chart: FC<Props> = ({ className = '' }) => {
   return (
-    <div className={styles.Chart}>
+    <div className={`${styles.Chart} ${className}`}>
       <div className={styles.Chart__header}>
         <h3 className={styles.Chart__title}>
           Take a quiz to get a personalized plan
