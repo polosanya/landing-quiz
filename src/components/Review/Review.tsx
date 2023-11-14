@@ -16,7 +16,7 @@ const Review: FC<Props> = ({ author, rating, text, className = "" }) => {
         <h3 className={styles.author}>{author}</h3>
 
         <div className={styles.rating}>
-          <img src={starIMG} alt="rating" className={styles.image}/>
+          <img src={starIMG} alt="rating" className={styles.image} />
           <span className={styles.count}>{rating.toFixed(1)}</span>
         </div>
       </div>

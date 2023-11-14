@@ -32,9 +32,7 @@ const LoadingScreen = () => {
         );
       })}
 
-      <Footer>
-        <Slideshow />
-      </Footer>
+      <Slideshow className={styles.slideshow} />
     </article>
   );
 };

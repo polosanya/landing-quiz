@@ -1,5 +1,18 @@
+@import '@helpers/mixins.scss';
+
 .screen {
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
+}
+
+.slideshow {
+  position: absolute;
+  left: 2.4rem;
+  right: 2.4rem;
+  bottom: 1.6rem;
+
+  @include heightL {
+    bottom: 4rem;
+  }
 }
