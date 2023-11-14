@@ -58,30 +58,36 @@ const QuizScreen: FC<Props> = ({ questions, onExit, onSubmit }) => {
       {isCompleted ? (
         <EmailScreen onSubmit={onSubmit} />
       ) : (
-        <div className={styles.QuizScreen}>
+        <div className={styles.screen}>
           <Navigation
             total={questions.length}
             current={currentQuestion.id}
             onBack={handleBack}
           />
 
-          <h1>
-            {currentQuestion.text} {currentQuestion.id}
-          </h1>
+          <div className={styles.title}>
+            <h1>
+              {currentQuestion.text} {currentQuestion.id}
+            </h1>
 
-          {currentQuestion.options.map((option) => {
-            const isSelected = selectedOptions?.includes(option);
+            <h3 className={styles.subtitle}>Select all that apply</h3>
+          </div>
 
-            return (
-              <Option
-                key={option.id}
-                text={option.text}
-                emoji={option.emoji}
-                checked={isSelected}
-                onChecked={handleSelect(option, isSelected)}
-              />
-            );
-          })}
+          <div className={styles.options}>
+            {currentQuestion.options.map((option) => {
+              const isSelected = selectedOptions?.includes(option);
+
+              return (
+                <Option
+                  key={option.id}
+                  text={option.text}
+                  emoji={option.emoji}
+                  checked={isSelected}
+                  onChecked={handleSelect(option, isSelected)}
+                />
+              );
+            })}
+          </div>
 
           <Footer>
             <ButtonPrimary
