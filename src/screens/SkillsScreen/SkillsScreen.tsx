@@ -11,7 +11,8 @@ import { useQuizContext } from "src/context/QuizContext";
 const SkillsScreen = () => {
   // const statistics = useRef({});
   const navigate = useNavigate();
-  const { maritalStatus, changeStatus, completeQuiz, updateAnswersData } = useQuizContext();
+  const { maritalStatus, changeStatus, completeQuiz, updateAnswersData } =
+    useQuizContext();
 
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentQuestionId, setCurrentQuestionId] = useState(1);
@@ -24,7 +25,7 @@ const SkillsScreen = () => {
   useEffect(() => {
     if (maritalStatus !== MaritalStatus.Unknown) {
       const endpoint =
-      maritalStatus === MaritalStatus.Relation ? "Relationship" : "Single";
+        maritalStatus === MaritalStatus.Relation ? "Relationship" : "Single";
 
       const fetchData = async () => {
         try {
@@ -44,7 +45,7 @@ const SkillsScreen = () => {
 
       fetchData();
     }
-  }, [navigate, maritalStatus]);  
+  }, [navigate, maritalStatus]);
 
   const handleSelect = (option: Answer, isSelected: boolean) => {
     return () => {
@@ -68,7 +69,7 @@ const SkillsScreen = () => {
 
   const handleContinue = () => {
     if (currentQuestion) {
-      const newData = { [`${currentQuestion.slug}`]: selectedOptions}
+      const newData = { [`${currentQuestion.slug}`]: selectedOptions };
       updateAnswersData(newData);
     }
     setSelectedOptions([]);

@@ -3,7 +3,7 @@ import styles from "./Option.module.scss";
 
 type Props = {
   text: string;
-  emoji: string;
+  emoji?: string;
   checked: boolean;
   className?: string;
   onChecked: () => void;
@@ -11,7 +11,7 @@ type Props = {
 
 const Option: FC<Props> = ({
   text,
-  emoji,
+  emoji = "0x1F609",
   checked,
   className = "",
   onChecked,
