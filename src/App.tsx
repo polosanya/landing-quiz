@@ -4,16 +4,43 @@ import SkillsScreen from "@screens/SkillsScreen";
 import WelcomeScreen from "@screens/WelcomeScreen";
 import { Route, Routes } from "react-router-dom";
 import "./App.scss";
-// import { useQuizContext } from "./context/QuizContext";
+import { MaritalStatus, RoutesType } from "@helpers/types";
+import RouteGuard from "@components/RouteGuard";
+import { useQuizContext } from "./context/QuizContext";
 
 const App = () => {
+  const { maritalStatus, isQuizCompleted } = useQuizContext();
+
   return (
     <Routes>
-      <Route path="/" element={<WelcomeScreen />} />
-      <Route path="skills" element={<SkillsScreen />} />
-      <Route path="email" element={<EmailScreen />} />
-      <Route path="loading" element={<LoadingScreen />} />
-      <Route path="*" element={<h1>Not found</h1>} />
+      <Route path={RoutesType.Welcome} element={<WelcomeScreen />} />
+      <Route
+        path={RoutesType.Skills}
+        element={
+          <RouteGuard condition={maritalStatus !== MaritalStatus.Unknown}>
+            <SkillsScreen />
+          </RouteGuard>
+        }
+      />
+
+      <Route
+        path={RoutesType.Email}
+        element={
+          <RouteGuard condition={isQuizCompleted}>
+            <EmailScreen />
+          </RouteGuard>
+        }
+      />
+
+      <Route
+        path={RoutesType.Loading}
+        element={
+          <RouteGuard condition={isQuizCompleted}>
+            <LoadingScreen />
+          </RouteGuard>
+        }
+      />
+      <Route path={RoutesType.Default} element={<h1>Not found</h1>} />
     </Routes>
   );
 };

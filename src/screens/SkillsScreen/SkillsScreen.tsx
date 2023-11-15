@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Footer from "@components/Footer";
 import Navigation from "@components/Navigation";
 import Option from "@components/Option";
-import { Answer, MaritalStatus, Question } from "@helpers/types";
+import { Answer, MaritalStatus, Question, RoutesType } from "@helpers/types";
 import { useEffect, useMemo, useState } from "react";
 import styles from "./SkillsScreen.module.scss";
 import { useQuizContext } from "src/context/QuizContext";
@@ -11,7 +11,7 @@ import { useQuizContext } from "src/context/QuizContext";
 const SkillsScreen = () => {
   // const statistics = useRef({});
   const navigate = useNavigate();
-  const { maritalStatus, changeStatus } = useQuizContext();
+  const { maritalStatus, changeStatus, completeQuiz } = useQuizContext();
 
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentQuestionId, setCurrentQuestionId] = useState(1);
@@ -38,13 +38,13 @@ const SkillsScreen = () => {
           setCurrentQuestionId(questionsFromServer[0].id);
         } catch (error) {
           console.error("Error fetching data:", error);
-          navigate('/');
+          navigate(RoutesType.Welcome);
         }
       };
 
       fetchData();
     }
-  }, [navigate, maritalStatus]);
+  }, [navigate, maritalStatus]);  
 
   const handleSelect = (option: Answer, isSelected: boolean) => {
     return () => {
@@ -59,10 +59,9 @@ const SkillsScreen = () => {
   const handleBack = () => {
     if (currentQuestionId === 1) {
       changeStatus(MaritalStatus.Unknown);
-      
-      navigate("/");
+      navigate(RoutesType.Welcome);
     } else {
-      setCurrentQuestionId((prevValue) => prevValue + 1);
+      setCurrentQuestionId((prevValue) => prevValue - 1);
       setSelectedOptions([]);
     }
   };
@@ -75,7 +74,8 @@ const SkillsScreen = () => {
     setSelectedOptions([]);
 
     if (currentQuestionId === questions.length) {
-      navigate('/email');
+      completeQuiz();
+      navigate(RoutesType.Email);
       // you can send the statistics somewhere if needed;
     } else {
       setCurrentQuestionId((prevValue) => prevValue + 1);

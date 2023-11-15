@@ -15,3 +15,11 @@ export interface Question {
   text: string, 
   options: Answer[],
 }
+
+export enum RoutesType {
+  Welcome = '/',
+  Skills = '/skills',
+  Email = '/email',
+  Loading = '/loading',
+  Default = '*',
+}

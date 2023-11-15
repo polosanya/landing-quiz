@@ -2,7 +2,7 @@ import Logo from "@components/Logo";
 import styles from "./WelcomeScreen.module.scss";
 import Chart from "@components/Chart";
 import ButtonSecondary from "@components/ButtonSecondary";
-import { MaritalStatus } from "@helpers/types";
+import { MaritalStatus, RoutesType } from "@helpers/types";
 import { FC, useEffect } from "react";
 import Footer from "@components/Footer";
 import { useNavigate } from "react-router-dom";
@@ -18,7 +18,7 @@ const WelcomeScreen: FC = () => {
 
   useEffect(() => {
     if (maritalStatus !== MaritalStatus.Unknown) {
-      navigate('/skills')
+      navigate(RoutesType.Skills)
     }
   }, [navigate, maritalStatus]);
   

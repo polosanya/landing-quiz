@@ -5,6 +5,7 @@ import Input from "@components/Input";
 import { useState } from "react";
 import Policy from "@components/Policy";
 import { useNavigate } from "react-router-dom";
+import { RoutesType } from "@helpers/types";
 
 const EmailScreen = () => {
   const navigate = useNavigate();
@@ -42,7 +43,7 @@ const EmailScreen = () => {
     if (!email || error) {
       validateEmail(email);
     } else {
-      navigate('/loading');
+      navigate(RoutesType.Loading);
     }
   };
 
