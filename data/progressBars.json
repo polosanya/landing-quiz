@@ -2,19 +2,23 @@
   "progressBars": [
     {
       "id": 1,
-      "text": "Setting goals"
+      "text": "Setting goals",
+      "question": "Have you tried changing your love life before?"
     },
     {
       "id": 2,
-      "text": "Adapting growth areas"
+      "text": "Adapting growth areas",
+      "question": "Do you prefer to have expert guidance?"
     },
     {
       "id": 3,
-      "text": "Picking content"
+      "text": "Picking content",
+      "question": "Do you lack consistency?"
     },
     {
       "id": 4,
-      "text": "Prioritizing challenges"
+      "text": "Prioritizing challenges",
+      "question": "Are you open to self-improvement?"
     }
   ]
 }
