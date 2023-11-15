@@ -3,73 +3,87 @@
       {
         "id": 1,
         "text": "What would you like to learn?",
+        "slug": "single-like-to-learn-1",
         "options": [
           {
             "id": 1, 
+            "slug": "skill-1-single",
             "text": "Skill1_single",
-            "emoji": "0x1F609"
+            "emoji": "0x1f64c"
           },
           {
             "id": 2, 
+            "slug": "skill-2-single",
             "text": "Skill2_single",
-            "emoji": "0x1F609"
+            "emoji": "0x1f979"
           },
           {
             "id": 3, 
+            "slug": "skill-3-single",
             "text": "Skill3_single",
-            "emoji": "0x1F609"
+            "emoji": "0x26A1"
           }
         ]
       },
       {
         "id": 2,
         "text": "What would you like to learn?",
+        "slug": "single-like-to-learn-2",
         "options": [
           {
             "id": 1, 
+            "slug": "skill-1-single",
             "text": "Skill1_single",
-            "emoji": "0x1F609"
+            "emoji": "0x1f64c"
           },
           {
             "id": 2, 
+            "slug": "skill-2-single",
             "text": "Skill2_single",
-            "emoji": "0x1F609"
+            "emoji": "0x1f979"
           },
           {
             "id": 3, 
+            "slug": "skill-3-single",
             "text": "Skill3_single",
-            "emoji": "0x1F609"
+            "emoji": "0x26A1"
           },
           {
             "id": 4, 
+            "slug": "skill-4-single",
             "text": "Skill4_single",
-            "emoji": "0x1F609"
+            "emoji": "0x1f60c"
           },
           {
             "id": 5, 
+            "slug": "skill-5-single",
             "text": "Skill5_single",
-            "emoji": "0x1F609"
+            "emoji": "0x1f44d"
           }
         ]
       },
       {
         "id": 3,
         "text": "What would you like to learn?",
+        "slug": "single-like-to-learn-3",
         "options": [
           {
             "id": 1, 
+            "slug": "skill-1-single",
             "text": "Skill1_single",
-            "emoji": "0x1F609"
+            "emoji": "0x1f64c"
           },
           {
             "id": 2, 
+            "slug": "skill-2-single",
             "text": "Skill2_single",
-            "emoji": "0x1F609"
+            "emoji": "0x1f979"
           },
           {
             "id": 3, 
+            "slug": "skill-3-single",
             "text": "Skill3_single",
-            "emoji": "0x1F609"
+            "emoji": "0x26A1"
           }
         ]
       }
