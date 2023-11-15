@@ -24,10 +24,6 @@
   background-color: $color-bg;
   border-radius: 1rem;
   transition: width $transition-duration ease-in-out;
-
-  // @include tablet {
-  //   width: 100%;
-  // }
 }
 
 .hint {

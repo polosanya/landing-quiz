@@ -1,19 +1,26 @@
 import Popup from "@components/Popup";
-import { AdditionalQuestion } from "@helpers/types";
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useMemo, useState } from "react";
 import { useQuizContext } from "src/context/QuizContext";
 import styles from "./ProgressModal.module.scss";
+import { IAdditionalQuestion } from "@helpers/types";
 
 type Props = {
   onFinish: () => void;
   isActive: boolean;
-  question: AdditionalQuestion;
+  question: IAdditionalQuestion;
+  progressDuration?: number;
 };
 
-const ProgressModal: FC<Props> = ({ onFinish, isActive, question }) => {
+const ProgressModal: FC<Props> = ({
+  onFinish,
+  isActive,
+  question,
+  progressDuration = 3000,
+}) => {
   const [count, setCount] = useState(0);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const { updateAnswersData } = useQuizContext();
+  const percentDuration = useMemo(() => progressDuration / 100, [progressDuration]);
 
   useEffect(() => {
     if (!isActive) return;
@@ -35,14 +42,14 @@ const ProgressModal: FC<Props> = ({ onFinish, isActive, question }) => {
       } else {
         clearInterval(interval);
       }
-    }, 30);
+    }, percentDuration);
 
     return () => clearInterval(interval);
-  }, [isActive, isModalVisible, onFinish]);
+  }, [isActive, isModalVisible, onFinish, percentDuration]);
 
   const closeModal = (slug: string) => {
-    const newData = {[`${question.slug}`]: [slug]}
-    updateAnswersData(newData)
+    const newData = { [`${question.slug}`]: [slug] };
+    updateAnswersData(newData);
     setIsModalVisible(false);
   };
 
@@ -57,9 +64,7 @@ const ProgressModal: FC<Props> = ({ onFinish, isActive, question }) => {
         <div style={{ width: `${count}%` }} className={styles.progress} />
       </div>
 
-      {isModalVisible && (
-        <Popup question={question} onClose={closeModal} />
-      )}
+      {isModalVisible && <Popup question={question} onClose={closeModal} />}
     </div>
   );
 };

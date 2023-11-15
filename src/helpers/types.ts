@@ -11,39 +11,50 @@ export enum QuestionsEndpoint {
 } 
 
 export type QuestionsResponse = {
-  questions: Question[],
+  questions: IQuestion[],
 }
 
 export type AdditionalQuestionsResponse = {
-  additionalQuestions: AdditionalQuestion[]
+  additionalQuestions: IAdditionalQuestion[]
 }
 
-export interface Question {
+export type ReviewsResponse = {
+  reviews: IReview[];
+}
+
+export interface IQuestion {
   id: number,
   slug: string,
   text: string, 
-  options: QuestionOption[],
+  options: IQuestionOption[],
 }
 
-export interface QuestionOption {
+export interface IQuestionOption {
   id: number,
   slug: string,
   text: string,
   emoji: string,
 }
 
-export interface AdditionalQuestion {
+export interface IAdditionalQuestion {
   id: number,
   slug: string,
   text: string,
   question: string,
-  options: AdditionalQuestionOption[],
+  options: IAdditionalQuestionOption[],
 }
 
-export interface AdditionalQuestionOption {
+export interface IAdditionalQuestionOption {
   id: number,
   slug: string,
   text: string,
+}
+
+export interface IReview {
+  id: number,
+  author: string,
+  text: string,
+  rating: number,
 }
 
 export enum RoutesType {
@@ -54,6 +65,6 @@ export enum RoutesType {
   Default = '*',
 }
 
-export interface AnswersData {
+export interface IAnswersData {
   [questionSlug: string]: string[],
 }

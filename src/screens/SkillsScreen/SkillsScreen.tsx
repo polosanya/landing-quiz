@@ -5,9 +5,9 @@ import Loader from "@components/Loader/Loader";
 import Navigation from "@components/Navigation";
 import Option from "@components/Option";
 import {
+  IQuestion,
+  IQuestionOption,
   MaritalStatus,
-  Question,
-  QuestionOption,
   QuestionsEndpoint,
   RoutesType
 } from "@helpers/types";
@@ -22,7 +22,7 @@ const SkillsScreen = () => {
     useQuizContext();
 
   const [isLoading, setIsLoading] = useState(true);
-  const [questions, setQuestions] = useState<Question[]>([]);
+  const [questions, setQuestions] = useState<IQuestion[]>([]);
   const [currentQuestionId, setCurrentQuestionId] = useState(1);
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
   const currentQuestion = useMemo(
@@ -55,7 +55,7 @@ const SkillsScreen = () => {
     }
   }, [maritalStatus]);
 
-  const handleSelect = (option: QuestionOption, isSelected: boolean) => {
+  const handleSelect = (option: IQuestionOption, isSelected: boolean) => {
     return () => {
       setSelectedOptions((prevValues) =>
         isSelected

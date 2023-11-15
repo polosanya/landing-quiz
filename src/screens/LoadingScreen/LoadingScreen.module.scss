@@ -1,18 +1,24 @@
+@import '@helpers/variables.scss';
 @import '@helpers/mixins.scss';
+
+$gap: 1.2rem;
 
 .screen {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: $gap;
+  padding-top: calc(2.9rem - $padding-top);
 }
 
 .slideshow {
-  position: absolute;
-  left: 2.4rem;
-  right: 2.4rem;
-  bottom: 1.6rem;
+  margin-top: calc(2rem - $gap);
 
   @include heightL {
+    // margin-top: calc(12rem - $gap);
+    position: fixed;
+    left: $padding-hor;
+    right: $padding-hor;
+    // width: 100%;
     bottom: 4rem;
   }
 }

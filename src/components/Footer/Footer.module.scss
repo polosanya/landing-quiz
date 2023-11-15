@@ -1,14 +1,6 @@
 @import '@helpers/variables.scss';
 @import '@helpers/mixins.scss';
 
-// html body {
-//   padding-bottom: 0;
-
-//   @include heightL {
-//     padding-bottom: 1.6rem;
-//   }
-// }
-
 .footer {
   position: fixed;
   display: flex;
@@ -17,7 +9,6 @@
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 1.6rem 2.4rem 1.6rem;
+  padding: $padding-bottom $padding-hor;
   background: $color-bg-linear;
-  // background-color: $color-bg;
 }

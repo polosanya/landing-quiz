@@ -16,6 +16,10 @@
   transition: border-color $transition-duration;
   cursor: pointer;
 
+  &:hover {
+    border-color: $color-primary;
+  }
+
   &.selected {
     border-color: $color-primary;
   }

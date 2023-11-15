@@ -1,12 +1,12 @@
+@import '@helpers/variables.scss';
+
 .slideshow {
-  margin: 0 auto;
   overflow: hidden;
-  // width: 100%;
 }
 
 .slideshowSlider {
   white-space: nowrap;
-  transition: transform 1s;
+  transition: transform $transition-duration;
   z-index: -1;
 }
 

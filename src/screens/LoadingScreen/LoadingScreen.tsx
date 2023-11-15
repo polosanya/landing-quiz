@@ -1,18 +1,17 @@
 import { getAdditionalQuestions } from "@api/questions";
-import styles from "./LoadingScreen.module.scss";
 import Loader from "@components/Loader/Loader";
 import Logo from "@components/Logo";
 import ProgressModal from "@components/ProgressModal";
-import Slideshow from "@components/Slideshow";
-import { AdditionalQuestion } from "@helpers/types";
+import { IAdditionalQuestion } from "@helpers/types";
 import { useEffect, useState } from "react";
 import { useQuizContext } from "src/context/QuizContext";
+import styles from "./LoadingScreen.module.scss";
+import ReviewsSlideshow from "@components/ReviewsSlideshow";
 
 const LoadingScreen = () => {
   const { answersData } = useQuizContext();
   const [isLoading, setIsLoading] = useState(true);
-  const [questions, setQuestions] = useState<AdditionalQuestion[]>([]);
-  // const [reviews, setReviews] = useState([]);
+  const [questions, setQuestions] = useState<IAdditionalQuestion[]>([]);
   const [activeQuestionId, setActiveQuestionId] = useState(1);
 
   useEffect(() => {
@@ -24,7 +23,7 @@ const LoadingScreen = () => {
         setQuestions(additionalQuestions);
         setActiveQuestionId(additionalQuestions[0].id);
       } catch {
-        throw new Error("Can't load questionss");
+        throw new Error("Can't load questions");
       }
 
       setIsLoading(false);
@@ -62,7 +61,7 @@ const LoadingScreen = () => {
             );
           })}
 
-          <Slideshow className={styles.slideshow} />
+          <ReviewsSlideshow className={styles.slideshow} animationDuration={3000} />
         </article>
       )}
     </>

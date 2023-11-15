@@ -5,12 +5,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.2rem;
-  padding-bottom: 10rem;
+  justify-content: center;
+  gap: 2rem;
+
+  @include heightL {
+    gap: 6rem;
+  }
 }
 
-.logo {
-  align-self: center;
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
 }
 
 .title {
@@ -27,20 +33,18 @@
   font-size: 1.6rem;
   font-weight: 300;
   text-align: center;
-  margin-bottom: 2rem;
-
-  @include heightL {
-    margin-bottom: 6rem;
-  }
 }
 
-// .chart {
-//   margin: 0.8rem 0 12rem;
+.footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
 
-//   @include heightL {
-//     margin: 4.8rem 0 19.8rem;
-//   }
-// }
+  @include heightL {
+    margin-top: 2.2rem;
+  }
+}
 
 .question {
   font-size: 1.8rem;

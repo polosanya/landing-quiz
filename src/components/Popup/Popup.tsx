@@ -1,11 +1,11 @@
-import { AdditionalQuestion } from "@helpers/types";
+import { IAdditionalQuestion } from "@helpers/types";
 import { FC } from "react";
 import styles from "./Popup.module.scss";
 import Select from "@components/Select";
 
 type Props = {
   onClose: (s: string) => void;
-  question: AdditionalQuestion;
+  question: IAdditionalQuestion;
   hint?: string;
 };
 
