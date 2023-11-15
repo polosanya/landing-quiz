@@ -1,9 +1,10 @@
-import { Routes, Route } from "react-router-dom";
-import LoadingScreen from "@screens/LoadingScreen";
-import WelcomeScreen from "@screens/WelcomeScreen";
-import "./App.scss";
-import SkillsScreen from "@screens/SkillsScreen";
 import EmailScreen from "@screens/EmailScreen";
+import LoadingScreen from "@screens/LoadingScreen";
+import SkillsScreen from "@screens/SkillsScreen";
+import WelcomeScreen from "@screens/WelcomeScreen";
+import { Route, Routes } from "react-router-dom";
+import "./App.scss";
+// import { useQuizContext } from "./context/QuizContext";
 
 const App = () => {
   return (

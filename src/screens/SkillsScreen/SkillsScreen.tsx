@@ -1,18 +1,17 @@
 import ButtonPrimary from "@components/ButtonPrimary";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Footer from "@components/Footer";
 import Navigation from "@components/Navigation";
 import Option from "@components/Option";
 import { Answer, MaritalStatus, Question } from "@helpers/types";
 import { useEffect, useMemo, useState } from "react";
 import styles from "./SkillsScreen.module.scss";
+import { useQuizContext } from "src/context/QuizContext";
 
 const SkillsScreen = () => {
   // const statistics = useRef({});
   const navigate = useNavigate();
-  const {
-    state: { status },
-  } = useLocation();
+  const { maritalStatus, changeStatus } = useQuizContext();
 
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentQuestionId, setCurrentQuestionId] = useState(1);
@@ -23,9 +22,9 @@ const SkillsScreen = () => {
   );
 
   useEffect(() => {
-    if (status !== MaritalStatus.Unknown) {
+    if (maritalStatus !== MaritalStatus.Unknown) {
       const endpoint =
-        status === MaritalStatus.Relation ? "Relationship" : "Single";
+      maritalStatus === MaritalStatus.Relation ? "Relationship" : "Single";
 
       const fetchData = async () => {
         try {
@@ -45,7 +44,7 @@ const SkillsScreen = () => {
 
       fetchData();
     }
-  }, [navigate, status]);
+  }, [navigate, maritalStatus]);
 
   const handleSelect = (option: Answer, isSelected: boolean) => {
     return () => {
@@ -59,6 +58,8 @@ const SkillsScreen = () => {
 
   const handleBack = () => {
     if (currentQuestionId === 1) {
+      changeStatus(MaritalStatus.Unknown);
+      
       navigate("/");
     } else {
       setCurrentQuestionId((prevValue) => prevValue + 1);

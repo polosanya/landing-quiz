@@ -15,11 +15,12 @@ export default defineConfig({
   },
   resolve: {
     alias: {
+      src: "/src",
       '@components': '/src/components',
       '@screens': '/src/screens',
       '@assets': '/src/assets',
       '@helpers': '/src/helpers',
-      '@api': '/src/api'
+      '@api': '/src/api',
     },
   },
 })

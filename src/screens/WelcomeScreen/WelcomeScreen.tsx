@@ -3,23 +3,24 @@ import styles from "./WelcomeScreen.module.scss";
 import Chart from "@components/Chart";
 import ButtonSecondary from "@components/ButtonSecondary";
 import { MaritalStatus } from "@helpers/types";
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect } from "react";
 import Footer from "@components/Footer";
 import { useNavigate } from "react-router-dom";
+import { useQuizContext } from "src/context/QuizContext";
 
 const WelcomeScreen: FC = () => {
   const navigate = useNavigate();
-  const [status, setStatus] = useState<MaritalStatus>(MaritalStatus.Unknown);
+  const { maritalStatus, changeStatus } = useQuizContext();
 
-  const handleChoose = (value: MaritalStatus) => {
-    setStatus(value);
-  };
+  // const handleChoose = (value: MaritalStatus) => {
+  //   setStatus(value);
+  // };
 
   useEffect(() => {
-    if (status !== MaritalStatus.Unknown) {
-      navigate('/skills', { state: {status} })
+    if (maritalStatus !== MaritalStatus.Unknown) {
+      navigate('/skills')
     }
-  }, [navigate, status]);
+  }, [navigate, maritalStatus]);
   
   return (
     <div className={styles.screen}>
@@ -39,8 +40,8 @@ const WelcomeScreen: FC = () => {
         <h2 className={styles.question}>What is your relationship status?</h2>
 
         <div className={styles.answers}>
-          <ButtonSecondary text={MaritalStatus.Single} onClick={handleChoose} />
-          <ButtonSecondary text={MaritalStatus.Relation} onClick={handleChoose} />
+          <ButtonSecondary text={MaritalStatus.Single} onClick={changeStatus} />
+          <ButtonSecondary text={MaritalStatus.Relation} onClick={changeStatus} />
         </div>
       </Footer>
     </div>
