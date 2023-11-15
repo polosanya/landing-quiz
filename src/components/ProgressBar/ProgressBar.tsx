@@ -1,16 +1,19 @@
 import { useState, useEffect, FC } from "react";
 import styles from "./ProgressBar.module.scss";
 import Popup from "@components/Popup";
+import { Progress } from "@helpers/types";
+import { useQuizContext } from "src/context/QuizContext";
 
 type Props = {
   onFinish: () => void;
   isActive: boolean;
-  label: string;
+  bar: Progress;
 };
 
-const ProgressBar: FC<Props> = ({ onFinish, isActive, label }) => {
+const ProgressBar: FC<Props> = ({ onFinish, isActive, bar }) => {
   const [count, setCount] = useState(0);
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const { updateAnswersData } = useQuizContext();
 
   useEffect(() => {
     if (!isActive) return;
@@ -37,14 +40,16 @@ const ProgressBar: FC<Props> = ({ onFinish, isActive, label }) => {
     return () => clearInterval(interval);
   }, [isActive, isModalVisible, onFinish]);
 
-  const closeModal = () => {
+  const closeModal = (slug: string) => {
+    const newData = {[`${bar.slug}`]: [slug]}
+    updateAnswersData(newData)
     setIsModalVisible(false);
   };
 
   return (
     <div className={styles.container}>
       <div className={styles.text}>
-        <h3 className={styles.title}>{label}</h3>
+        <h3 className={styles.title}>{bar.text}</h3>
         <span className={styles.count}>{count}%</span>
       </div>
 
@@ -53,7 +58,7 @@ const ProgressBar: FC<Props> = ({ onFinish, isActive, label }) => {
       </div>
 
       {isModalVisible && (
-        <Popup onClose={closeModal} />
+        <Popup bar={bar} onClose={closeModal} />
       )}
     </div>
   );

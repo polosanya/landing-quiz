@@ -6,10 +6,12 @@ import { useState } from "react";
 import Policy from "@components/Policy";
 import { useNavigate } from "react-router-dom";
 import { RoutesType } from "@helpers/types";
+import { useQuizContext } from "src/context/QuizContext";
 
 const EmailScreen = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
+  const { email, updateEmail } = useQuizContext();
+  // const [email, setEmail] = useState("");
   const [error, setError] = useState("");
 
   let validationTimeout: number;
@@ -30,7 +32,7 @@ const EmailScreen = () => {
 
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
-    setEmail(value.trim());
+    updateEmail(value.trim());
 
     clearTimeout(validationTimeout);
 

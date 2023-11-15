@@ -1,4 +1,4 @@
-import { MaritalStatus } from '@helpers/types';
+import { AnswersData, MaritalStatus } from '@helpers/types';
 import { FC, ReactNode, createContext, useContext, useState } from 'react';
 
 export type QuizContextType = {
@@ -6,6 +6,10 @@ export type QuizContextType = {
   maritalStatus: MaritalStatus,
   completeQuiz: () => void,
   changeStatus: (s: MaritalStatus) => void,
+  email: string,
+  updateEmail: (v: string) => void,
+  answersData: AnswersData,
+  updateAnswersData: (a: AnswersData) => void,
 }
 
 type Props = {
@@ -18,6 +22,8 @@ const QuizContext = createContext<QuizContextType | null>(null);
 const QuizProvider: FC<Props> = ({ children }) => {
   const [isQuizCompleted, setIsQuizCompleted] = useState(false);
   const [maritalStatus, setMaritalStatus] = useState(MaritalStatus.Unknown);
+  const [email, setEmail] = useState('');
+  const [answersData, setAnswersData] = useState<AnswersData>({});
 
   const completeQuiz = () => {
     setIsQuizCompleted(true);
@@ -27,6 +33,17 @@ const QuizProvider: FC<Props> = ({ children }) => {
     setMaritalStatus(newStatus);
   }
 
+  const updateEmail = (newValue: string) => {
+    setEmail(newValue);
+  }
+
+  const updateAnswersData = (newData: AnswersData) => {
+    setAnswersData((prevData) => ({
+      ...prevData,
+      ...newData
+    }));
+  };
+
   return (
     <QuizContext.Provider 
       value={{ 
@@ -34,6 +51,10 @@ const QuizProvider: FC<Props> = ({ children }) => {
         maritalStatus,
         completeQuiz,
         changeStatus,
+        email,
+        updateEmail,
+        answersData,
+        updateAnswersData
       }}
     >
       {children}

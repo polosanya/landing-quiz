@@ -6,14 +6,30 @@ export enum MaritalStatus {
 
 export interface Answer {
   id: number,
+  slug: string,
   text: string,
   emoji: string,
 }
 
 export interface Question {
   id: number,
+  slug: string,
   text: string, 
   options: Answer[],
+}
+
+export interface Progress {
+  id: number,
+  slug: string,
+  text: string,
+  question: string,
+  options: ProgressOption[],
+}
+
+export interface ProgressOption {
+  id: number,
+  slug: string,
+  text: string,
 }
 
 export enum RoutesType {
@@ -23,3 +39,14 @@ export enum RoutesType {
   Loading = '/loading',
   Default = '*',
 }
+
+export interface AnswersData {
+  // [questionSlug: string]: Answer['slug'][];
+  [questionSlug: string]: string[],
+}
+
+// export interface Statistics {
+//   email: string,
+//   maritalStatus: MaritalStatus,
+//   answers: AnswersData[]
+// }

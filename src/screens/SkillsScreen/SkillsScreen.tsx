@@ -11,11 +11,11 @@ import { useQuizContext } from "src/context/QuizContext";
 const SkillsScreen = () => {
   // const statistics = useRef({});
   const navigate = useNavigate();
-  const { maritalStatus, changeStatus, completeQuiz } = useQuizContext();
+  const { maritalStatus, changeStatus, completeQuiz, updateAnswersData } = useQuizContext();
 
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentQuestionId, setCurrentQuestionId] = useState(1);
-  const [selectedOptions, setSelectedOptions] = useState<Answer[]>([]);
+  const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
   const currentQuestion = useMemo(
     () => questions.find((q) => q.id === currentQuestionId),
     [currentQuestionId, questions]
@@ -50,8 +50,8 @@ const SkillsScreen = () => {
     return () => {
       setSelectedOptions((prevValues) =>
         isSelected
-          ? prevValues.filter((value) => value !== option)
-          : [...prevValues, option]
+          ? prevValues.filter((value) => value !== option.slug)
+          : [...prevValues, option.slug]
       );
     };
   };
@@ -67,10 +67,10 @@ const SkillsScreen = () => {
   };
 
   const handleContinue = () => {
-    // statistics.current = {
-    //   ...statistics.current,
-    //   [`${currentQuestion.id}: ${currentQuestion.text}`]: selectedOptions,
-    // }
+    if (currentQuestion) {
+      const newData = { [`${currentQuestion.slug}`]: selectedOptions}
+      updateAnswersData(newData);
+    }
     setSelectedOptions([]);
 
     if (currentQuestionId === questions.length) {
@@ -102,7 +102,7 @@ const SkillsScreen = () => {
 
           <div className={styles.options}>
             {currentQuestion.options.map((option) => {
-              const isSelected = selectedOptions?.includes(option);
+              const isSelected = selectedOptions?.includes(option.slug);
 
               return (
                 <Option
