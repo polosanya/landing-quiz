@@ -2,14 +2,12 @@ import Logo from "@components/Logo";
 import styles from "./EmailScreen.module.scss";
 import ButtonPrimary from "@components/ButtonPrimary";
 import Input from "@components/Input";
-import { FC, useState } from "react";
+import { useState } from "react";
 import Policy from "@components/Policy";
+import { useNavigate } from "react-router-dom";
 
-type Props = {
-  onSubmit: () => void;
-}
-
-const EmailScreen: FC<Props> = ({ onSubmit }) => {
+const EmailScreen = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
 
@@ -44,7 +42,7 @@ const EmailScreen: FC<Props> = ({ onSubmit }) => {
     if (!email || error) {
       validateEmail(email);
     } else {
-      onSubmit();
+      navigate('/loading');
     }
   };
 

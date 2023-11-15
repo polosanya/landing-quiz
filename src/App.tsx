@@ -1,69 +1,19 @@
-import WelcomeScreen from "@screens/WelcomeScreen";
-import QuizScreen from "@screens/QuizScreen";
-import "./App.scss";
-import { useEffect, useState } from "react";
-import { MaritalStatus, Question } from "@helpers/types";
+import { Routes, Route } from "react-router-dom";
 import LoadingScreen from "@screens/LoadingScreen";
+import WelcomeScreen from "@screens/WelcomeScreen";
+import "./App.scss";
+import SkillsScreen from "@screens/SkillsScreen";
+import EmailScreen from "@screens/EmailScreen";
 
 const App = () => {
-  const [status, setStatus] = useState<MaritalStatus>(MaritalStatus.Unknown);
-  const [questions, setQuestions] = useState<Question[] | null>(null);
-  const [isDataCollected, setIsDataCollected] = useState(false);
-
-  const handleChoose = (value: MaritalStatus) => {
-    setStatus(value);
-  };
-
-  const handleExit = () => {
-    setStatus(MaritalStatus.Unknown);
-    setQuestions(null);
-  };
-
-  const handleSubmit = () => {
-    setIsDataCollected(true);
-  };
-
-  useEffect(() => {
-    if (status !== MaritalStatus.Unknown) {
-      const endpoint =
-        status === MaritalStatus.Relation ? "Relationship" : "Single";
-
-      const fetchData = async () => {
-        try {
-          const response = await fetch(`./data/questions${endpoint}.json`);
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-          const { questions: questionsFromServer } = await response.json();
-
-          setQuestions(questionsFromServer);
-        } catch (error) {
-          console.error("Error fetching data:", error);
-        }
-      };
-
-      fetchData();
-    }
-  }, [status]);
-
   return (
-    <>
-      {isDataCollected ? (
-        <LoadingScreen />
-      ) : (
-        <>
-          {status === MaritalStatus.Unknown || questions === null ? (
-            <WelcomeScreen onChoose={handleChoose} />
-          ) : (
-            <QuizScreen
-              questions={questions}
-              onExit={handleExit}
-              onSubmit={handleSubmit}
-            />
-          )}
-        </>
-      )}
-    </>
+    <Routes>
+      <Route path="/" element={<WelcomeScreen />} />
+      <Route path="skills" element={<SkillsScreen />} />
+      <Route path="email" element={<EmailScreen />} />
+      <Route path="loading" element={<LoadingScreen />} />
+      <Route path="*" element={<h1>Not found</h1>} />
+    </Routes>
   );
 };
 

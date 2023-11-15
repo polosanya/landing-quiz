@@ -1,23 +1,51 @@
-import { Answer, Question } from "@helpers/types";
-import styles from "./QuizScreen.module.scss";
-import { FC, useState } from "react";
-import Option from "@components/Option";
 import ButtonPrimary from "@components/ButtonPrimary";
-import Navigation from "@components/Navigation";
-import EmailScreen from "@screens/EmailScreen";
+import { useLocation, useNavigate } from "react-router-dom";
 import Footer from "@components/Footer";
+import Navigation from "@components/Navigation";
+import Option from "@components/Option";
+import { Answer, MaritalStatus, Question } from "@helpers/types";
+import { useEffect, useMemo, useState } from "react";
+import styles from "./SkillsScreen.module.scss";
 
-type Props = {
-  questions: Question[];
-  onExit: () => void;
-  onSubmit: () => void;
-};
-
-const QuizScreen: FC<Props> = ({ questions, onExit, onSubmit }) => {
+const SkillsScreen = () => {
   // const statistics = useRef({});
-  const [currentQuestion, setCurrentQuestion] = useState(questions[0]);
+  const navigate = useNavigate();
+  const {
+    state: { status },
+  } = useLocation();
+
+  const [questions, setQuestions] = useState<Question[]>([]);
+  const [currentQuestionId, setCurrentQuestionId] = useState(1);
   const [selectedOptions, setSelectedOptions] = useState<Answer[]>([]);
-  const [isCompleted, setIsCompleted] = useState(false);
+  const currentQuestion = useMemo(
+    () => questions.find((q) => q.id === currentQuestionId),
+    [currentQuestionId, questions]
+  );
+
+  useEffect(() => {
+    if (status !== MaritalStatus.Unknown) {
+      const endpoint =
+        status === MaritalStatus.Relation ? "Relationship" : "Single";
+
+      const fetchData = async () => {
+        try {
+          const response = await fetch(`./data/questions${endpoint}.json`);
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          const { questions: questionsFromServer } = await response.json();
+
+          setQuestions(questionsFromServer);
+          setCurrentQuestionId(questionsFromServer[0].id);
+        } catch (error) {
+          console.error("Error fetching data:", error);
+          navigate('/');
+        }
+      };
+
+      fetchData();
+    }
+  }, [navigate, status]);
 
   const handleSelect = (option: Answer, isSelected: boolean) => {
     return () => {
@@ -30,10 +58,10 @@ const QuizScreen: FC<Props> = ({ questions, onExit, onSubmit }) => {
   };
 
   const handleBack = () => {
-    if (currentQuestion.id === 1) {
-      onExit();
+    if (currentQuestionId === 1) {
+      navigate("/");
     } else {
-      setCurrentQuestion((prevValue) => questions[prevValue.id - 2]);
+      setCurrentQuestionId((prevValue) => prevValue + 1);
       setSelectedOptions([]);
     }
   };
@@ -45,19 +73,17 @@ const QuizScreen: FC<Props> = ({ questions, onExit, onSubmit }) => {
     // }
     setSelectedOptions([]);
 
-    if (currentQuestion.id === questions.length) {
-      setIsCompleted(true);
+    if (currentQuestionId === questions.length) {
+      navigate('/email');
       // you can send the statistics somewhere if needed;
     } else {
-      setCurrentQuestion((prevValue) => questions[prevValue.id]);
+      setCurrentQuestionId((prevValue) => prevValue + 1);
     }
   };
 
   return (
     <>
-      {isCompleted ? (
-        <EmailScreen onSubmit={onSubmit} />
-      ) : (
+      {questions.length > 0 && currentQuestion && (
         <div className={styles.screen}>
           <Navigation
             total={questions.length}
@@ -102,4 +128,4 @@ const QuizScreen: FC<Props> = ({ questions, onExit, onSubmit }) => {
   );
 };
 
-export default QuizScreen;
+export default SkillsScreen;
