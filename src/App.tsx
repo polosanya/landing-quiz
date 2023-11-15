@@ -3,7 +3,6 @@ import LoadingScreen from "@screens/LoadingScreen";
 import SkillsScreen from "@screens/SkillsScreen";
 import WelcomeScreen from "@screens/WelcomeScreen";
 import { Route, Routes } from "react-router-dom";
-import "./App.scss";
 import { MaritalStatus, RoutesType } from "@helpers/types";
 import RouteGuard from "@components/RouteGuard";
 import { useQuizContext } from "./context/QuizContext";

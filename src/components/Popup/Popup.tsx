@@ -1,17 +1,17 @@
+import { AdditionalQuestion } from "@helpers/types";
 import { FC } from "react";
 import styles from "./Popup.module.scss";
-import ButtonSecondary from "@components/ButtonSecondary";
-import { Progress } from "@helpers/types";
+import Select from "@components/Select";
 
 type Props = {
   onClose: (s: string) => void;
-  bar: Progress;
+  question: AdditionalQuestion;
   hint?: string;
 };
 
 const Popup: FC<Props> = ({
   onClose,
-  bar,
+  question,
   hint = "To move forward, specify",
 }) => {
   return (
@@ -19,11 +19,12 @@ const Popup: FC<Props> = ({
       <div className={styles.popup}>
         <span className={styles.hint}>{hint}</span>
 
-        <h2 className={styles.title}>{bar.question}</h2>
+        <h2 className={styles.title}>{question.question}</h2>
 
         <div className={styles.buttons}>
-          {bar.options.map((option) => (
-            <ButtonSecondary
+          {question.options.map((option) => (
+            <Select
+              key={option.id}
               text={option.text}
               onClick={() => onClose(option.slug)}
             />

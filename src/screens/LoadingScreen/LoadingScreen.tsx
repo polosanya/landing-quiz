@@ -1,44 +1,71 @@
-// import { useEffect, useState } from "react";
+import { getAdditionalQuestions } from "@api/questions";
 import styles from "./LoadingScreen.module.scss";
-import progressBars from "../../../public/data/progressBars.json";
-
-import ProgressBar from "@components/ProgressBar";
-import { useState } from "react";
+import Loader from "@components/Loader/Loader";
 import Logo from "@components/Logo";
+import ProgressModal from "@components/ProgressModal";
 import Slideshow from "@components/Slideshow";
+import { AdditionalQuestion } from "@helpers/types";
+import { useEffect, useState } from "react";
 import { useQuizContext } from "src/context/QuizContext";
 
 const LoadingScreen = () => {
   const { answersData } = useQuizContext();
-  const [activeProgressBarId, setActiveProgressBarId] = useState(1);
+  const [isLoading, setIsLoading] = useState(true);
+  const [questions, setQuestions] = useState<AdditionalQuestion[]>([]);
+  // const [reviews, setReviews] = useState([]);
+  const [activeQuestionId, setActiveQuestionId] = useState(1);
 
-  const handleProgressBarComplete = () => {
-    if (activeProgressBarId === progressBars.progressBars.length) {
+  useEffect(() => {
+    const getQuestionsFromServer = async () => {
+      try {
+        setIsLoading(true);
+        const { additionalQuestions } = await getAdditionalQuestions();
+
+        setQuestions(additionalQuestions);
+        setActiveQuestionId(additionalQuestions[0].id);
+      } catch {
+        throw new Error("Can't load questionss");
+      }
+
+      setIsLoading(false);
+    };
+
+    getQuestionsFromServer();
+  }, []);
+
+  const handleProgressModalComplete = () => {
+    if (activeQuestionId === questions.length) {
       console.log(answersData);
     } else {
-      setActiveProgressBarId(activeProgressBarId + 1);
+      setActiveQuestionId(activeQuestionId + 1);
     }
   };
 
   return (
-    <article className={styles.screen}>
-      <Logo />
+    <>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <article className={styles.screen}>
+          <Logo />
 
-      <h1>We are crafting your personalized plan</h1>
+          <h1>We are crafting your personalized plan</h1>
 
-      {progressBars.progressBars.map((bar) => {
-        return (
-          <ProgressBar
-            bar={bar}
-            key={bar.id}
-            onFinish={handleProgressBarComplete}
-            isActive={activeProgressBarId === bar.id}
-          />
-        );
-      })}
+          {questions.map((question) => {
+            return (
+              <ProgressModal
+                question={question}
+                key={question.id}
+                onFinish={handleProgressModalComplete}
+                isActive={activeQuestionId === question.id}
+              />
+            );
+          })}
 
-      <Slideshow className={styles.slideshow} />
-    </article>
+          <Slideshow className={styles.slideshow} />
+        </article>
+      )}
+    </>
   );
 };
 

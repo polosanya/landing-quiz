@@ -4,29 +4,43 @@ export enum MaritalStatus {
   Unknown = '',
 }
 
-export interface Answer {
-  id: number,
-  slug: string,
-  text: string,
-  emoji: string,
+export enum QuestionsEndpoint {
+  Single = 'Single',
+  Relation = 'Relationship',
+  Additional = 'Additional',
+} 
+
+export type QuestionsResponse = {
+  questions: Question[],
+}
+
+export type AdditionalQuestionsResponse = {
+  additionalQuestions: AdditionalQuestion[]
 }
 
 export interface Question {
   id: number,
   slug: string,
   text: string, 
-  options: Answer[],
+  options: QuestionOption[],
 }
 
-export interface Progress {
+export interface QuestionOption {
+  id: number,
+  slug: string,
+  text: string,
+  emoji: string,
+}
+
+export interface AdditionalQuestion {
   id: number,
   slug: string,
   text: string,
   question: string,
-  options: ProgressOption[],
+  options: AdditionalQuestionOption[],
 }
 
-export interface ProgressOption {
+export interface AdditionalQuestionOption {
   id: number,
   slug: string,
   text: string,
@@ -41,12 +55,5 @@ export enum RoutesType {
 }
 
 export interface AnswersData {
-  // [questionSlug: string]: Answer['slug'][];
   [questionSlug: string]: string[],
 }
-
-// export interface Statistics {
-//   email: string,
-//   maritalStatus: MaritalStatus,
-//   answers: AnswersData[]
-// }

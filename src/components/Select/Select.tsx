@@ -1,5 +1,5 @@
 import { FC } from "react";
-import styles from "./ButtonSecondary.module.scss";
+import styles from "./Select.module.scss";
 // import { MaritalStatus } from "@helpers/types";
 
 type Props = {
@@ -8,12 +8,12 @@ type Props = {
   onClick: (value: any) => void;
 };
 
-const ButtonSecondary: FC<Props> = ({ text, onClick }) => {
+const Select: FC<Props> = ({ text, onClick }) => {
   return (
-    <button className={styles.ButtonSecondary} onClick={() => onClick(text)}>
+    <button className={styles.select} onClick={() => onClick(text)}>
       {text}
     </button>
   );
 };
 
-export default ButtonSecondary;
+export default Select;

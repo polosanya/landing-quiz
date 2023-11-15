@@ -1,19 +1,27 @@
+import { getQuestions } from "@api/questions";
 import ButtonPrimary from "@components/ButtonPrimary";
-import { useNavigate } from "react-router-dom";
 import Footer from "@components/Footer";
+import Loader from "@components/Loader/Loader";
 import Navigation from "@components/Navigation";
 import Option from "@components/Option";
-import { Answer, MaritalStatus, Question, RoutesType } from "@helpers/types";
+import {
+  MaritalStatus,
+  Question,
+  QuestionOption,
+  QuestionsEndpoint,
+  RoutesType
+} from "@helpers/types";
 import { useEffect, useMemo, useState } from "react";
-import styles from "./SkillsScreen.module.scss";
+import { useNavigate } from "react-router-dom";
 import { useQuizContext } from "src/context/QuizContext";
+import styles from "./SkillsScreen.module.scss";
 
 const SkillsScreen = () => {
-  // const statistics = useRef({});
   const navigate = useNavigate();
   const { maritalStatus, changeStatus, completeQuiz, updateAnswersData } =
     useQuizContext();
 
+  const [isLoading, setIsLoading] = useState(true);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentQuestionId, setCurrentQuestionId] = useState(1);
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
@@ -25,29 +33,29 @@ const SkillsScreen = () => {
   useEffect(() => {
     if (maritalStatus !== MaritalStatus.Unknown) {
       const endpoint =
-        maritalStatus === MaritalStatus.Relation ? "Relationship" : "Single";
+        maritalStatus === MaritalStatus.Relation
+          ? QuestionsEndpoint.Relation
+          : QuestionsEndpoint.Single;
 
-      const fetchData = async () => {
+      const getQuestionsFromServer = async () => {
         try {
-          const response = await fetch(`./data/questions${endpoint}.json`);
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-          const { questions: questionsFromServer } = await response.json();
+          setIsLoading(true);
+          const { questions } = await getQuestions(endpoint);
 
-          setQuestions(questionsFromServer);
-          setCurrentQuestionId(questionsFromServer[0].id);
-        } catch (error) {
-          console.error("Error fetching data:", error);
-          navigate(RoutesType.Welcome);
+          setQuestions(questions);
+          setCurrentQuestionId(questions[0].id);
+        } catch {
+          throw new Error("Can't load questions");
         }
+
+        setIsLoading(false);
       };
 
-      fetchData();
+      getQuestionsFromServer();
     }
-  }, [navigate, maritalStatus]);
+  }, [maritalStatus]);
 
-  const handleSelect = (option: Answer, isSelected: boolean) => {
+  const handleSelect = (option: QuestionOption, isSelected: boolean) => {
     return () => {
       setSelectedOptions((prevValues) =>
         isSelected
@@ -77,15 +85,18 @@ const SkillsScreen = () => {
     if (currentQuestionId === questions.length) {
       completeQuiz();
       navigate(RoutesType.Email);
-      // you can send the statistics somewhere if needed;
     } else {
       setCurrentQuestionId((prevValue) => prevValue + 1);
     }
   };
 
+  const isPageLoaded = questions.length > 0 && currentQuestion && !isLoading;
+
   return (
     <>
-      {questions.length > 0 && currentQuestion && (
+      {isLoading && <Loader />}
+
+      {isPageLoaded && (
         <div className={styles.screen}>
           <Navigation
             total={questions.length}
