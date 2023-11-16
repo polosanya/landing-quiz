@@ -5,28 +5,34 @@ import { FC } from "react";
 
 type Props = {
   className: string;
-}
+  title?: string;
+  from?: string[];
+  to?: string[];
+};
 
-const Chart: FC<Props> = ({ className = '' }) => {
+const Chart: FC<Props> = ({
+  className = "",
+  title = "Take a quiz to get a personalized plan",
+  from = ["You", "Week 1"],
+  to = ["Goal", "Week 4"],
+}) => {
+  const [fromChip, fromDate] = from;
+  const [toChip, toDate] = to;
   return (
-    <div className={`${styles.Chart} ${className}`}>
-      <div className={styles.Chart__header}>
-        <h3 className={styles.Chart__title}>
-          Take a quiz to get a personalized plan
-        </h3>
-
-        {/* <Chip title={"Goal"} className={styles.Chart__chipTop} /> */}
+    <div className={`${styles.chart} ${className}`}>
+      <div className={styles.header}>
+        <h3 className={styles.title}>{title}</h3>
       </div>
 
-      <div style={{position: 'relative', width: '100%'}}>
-        <ChartSvg className={styles.Chart__image} />
-        <Chip title={"Goal"} className={styles.Chart__chipTop} />
-        <Chip title={"You"} className={styles.Chart__chipBottom} />
+      <div className={styles.container}>
+        <ChartSvg className={styles.image} />
+        <Chip title={toChip} className={styles.chipTop} />
+        <Chip title={fromChip} className={styles.chipBottom} />
       </div>
 
-      <p className={styles.Chart__footer}>
-        <span>WEEK 1</span>
-        <span>WEEK 4</span>
+      <p className={styles.footer}>
+        <span>{fromDate}</span>
+        <span>{toDate}</span>
       </p>
     </div>
   );

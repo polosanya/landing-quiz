@@ -17,6 +17,8 @@
   position: absolute;
   left: 2.4rem;
   right: 2.4rem;
+  margin: 0 auto;
+  max-width: $width-desktop;
   display: flex;
   flex-direction: column;
   gap: 1.2rem;

@@ -14,11 +14,11 @@ $gap: 1.2rem;
   margin-top: calc(2rem - $gap);
 
   @include heightL {
-    // margin-top: calc(12rem - $gap);
     position: fixed;
-    left: $padding-hor;
     right: $padding-hor;
-    // width: 100%;
+    left: $padding-hor;
     bottom: 4rem;
+    max-width: calc($width-desktop - $padding-hor * 2);
+    margin: 0 auto;
   }
 }

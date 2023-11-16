@@ -22,8 +22,8 @@ $width-desktop: 1024px;
 $heightL: 580px;
 
 $basicSize: 10px;
-$sizeL: 15px;
-$sizeXL: 20px;
+$sizeL: calc($basicSize * 1.5);
+$sizeXL: calc($basicSize * 1.7);
 
 $minWidth: 320px;
 $minHeight: 100vh;

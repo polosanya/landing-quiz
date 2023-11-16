@@ -1,7 +1,10 @@
+@import '@helpers/variables.scss';
+
 .page {
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
+  padding-top: calc(2.9rem - $padding-top);
 }
 
 .title {
