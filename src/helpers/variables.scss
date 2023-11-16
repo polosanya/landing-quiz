@@ -17,16 +17,18 @@ $color-bg-linear: linear-gradient(180deg, rgba(250, 249, 255, 0.00) 0%, $color-b
 $color-bg-blur: rgba(17, 17, 17, 0.50);
 
 // breakpoints
-$width-tablet: 768px;
+$width-mobileL: 480px;
 $width-desktop: 1024px;
+$width-desktopL: 1440px;
 $heightL: 580px;
 
 $basicSize: 10px;
 $sizeL: calc($basicSize * 1.5);
-$sizeXL: calc($basicSize * 1.7);
+$sizeXL: calc($basicSize * 1.2);
 
 $minWidth: 320px;
 $minHeight: 100vh;
+$maxWidth: 768px;
 
 //animations 
 $transition-duration: 0.3s

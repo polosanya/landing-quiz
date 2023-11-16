@@ -1,4 +1,6 @@
-import Chart from "@components/Chart";
+// Alternative way to add chart
+// import Chart from "@components/Chart"; 
+import ChartSvg from "@assets/chartImage.svg?react";
 import Logo from "@components/Logo";
 import { MaritalStatus, RoutesType } from "@helpers/types";
 import { FC, useEffect } from "react";
@@ -10,10 +12,6 @@ import Select from "@components/Select";
 const WelcomeScreen: FC = () => {
   const navigate = useNavigate();
   const { maritalStatus, changeStatus } = useQuizContext();
-
-  // const handleChoose = (value: MaritalStatus) => {
-  //   setStatus(value);
-  // };
 
   useEffect(() => {
     if (maritalStatus !== MaritalStatus.Unknown) {
@@ -35,7 +33,7 @@ const WelcomeScreen: FC = () => {
         </p>
       </div>
 
-      <Chart className={styles.chart} />
+      <ChartSvg className={styles.chart} />
 
       <div className={styles.footer}>
         <h2 className={styles.question}>What is your relationship status?</h2>

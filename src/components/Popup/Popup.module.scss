@@ -18,7 +18,7 @@
   left: 2.4rem;
   right: 2.4rem;
   margin: 0 auto;
-  max-width: $width-desktop;
+  max-width: $maxWidth;
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
@@ -26,6 +26,14 @@
   background-color: $color-bg;
   border-radius: 1rem;
   transition: width $transition-duration ease-in-out;
+
+  @include tablet {
+    width: 50%;
+  }
+
+  @include desktop {
+    width: 30%;
+  }
 }
 
 .hint {

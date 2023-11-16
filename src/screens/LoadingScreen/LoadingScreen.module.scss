@@ -18,7 +18,7 @@ $gap: 1.2rem;
     right: $padding-hor;
     left: $padding-hor;
     bottom: 4rem;
-    max-width: calc($width-desktop - $padding-hor * 2);
+    max-width: calc($maxWidth - $padding-hor * 2);
     margin: 0 auto;
   }
 }

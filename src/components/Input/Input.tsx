@@ -34,6 +34,7 @@ const Input: FC<Props> = ({
         placeholder={placeholder}
         onFocus={handleTouched}
         name={name}
+        type={name}
         autoComplete={autoComplete}
       />
 

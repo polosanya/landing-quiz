@@ -37,6 +37,23 @@
   text-align: center;
 }
 
+.chart {
+  height: 100%;
+  width: 100%;
+
+  @include tablet {
+    width: 80%;
+  }
+
+  @include desktop {
+    width: 60%;
+  }
+
+  @include desktopL {
+    width: 70%;
+  }
+}
+
 .footer {
   width: 100%;
   display: flex;
