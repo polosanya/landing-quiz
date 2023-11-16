@@ -1,0 +1,76 @@
+{
+  "additionalQuestions": [
+    {
+      "id": 1,
+      "slug": "additional-love-life-before",
+      "text": "Setting goals",
+      "question": "Have you tried changing your love life before?",
+      "options": [
+        {
+          "id": 1, 
+          "slug": "option-no",
+          "text": "No"
+        },
+        {
+          "id": 2, 
+          "slug": "option-yes",
+          "text": "Yes"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "slug": "additional-expert-guidance",
+      "text": "Adapting growth areas",
+      "question": "Do you prefer to have expert guidance?",
+      "options": [
+        {
+          "id": 1, 
+          "slug": "option-no",
+          "text": "No"
+        },
+        {
+          "id": 2, 
+          "slug": "option-yes",
+          "text": "Yes"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "slug": "additional-lack-consistency",
+      "text": "Picking content",
+      "question": "Do you lack consistency?",
+      "options": [
+        {
+          "id": 1, 
+          "slug": "option-no",
+          "text": "No"
+        },
+        {
+          "id": 2, 
+          "slug": "option-yes",
+          "text": "Yes"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "slug": "additional-self-improvement-open",
+      "text": "Prioritizing challenges",
+      "question": "Are you open to self-improvement?",
+      "options": [
+        {
+          "id": 1, 
+          "slug": "option-no",
+          "text": "No"
+        },
+        {
+          "id": 2, 
+          "slug": "option-yes",
+          "text": "Yes"
+        }
+      ]
+    }
+  ]
+}

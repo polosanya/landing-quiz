@@ -1,0 +1,15 @@
+@import '@helpers/variables.scss';
+
+.slideshow {
+  overflow: hidden;
+}
+
+.slideshowSlider {
+  white-space: nowrap;
+  transition: transform $transition-duration;
+  z-index: -1;
+}
+
+.slide {
+  display: inline-block;
+}

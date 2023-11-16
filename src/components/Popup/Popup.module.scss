@@ -1,0 +1,56 @@
+@import '@helpers/variables.scss';
+@import '@helpers/mixins.scss';
+
+.overlay {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: $color-bg-blur;
+  z-index: 1;
+}
+
+.popup {
+  position: absolute;
+  left: 2.4rem;
+  right: 2.4rem;
+  margin: 0 auto;
+  max-width: $maxWidth;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding: 2rem;
+  background-color: $color-bg;
+  border-radius: 1rem;
+  transition: width $transition-duration ease-in-out;
+
+  @include tablet {
+    width: 50%;
+  }
+
+  @include desktop {
+    width: 30%;
+  }
+}
+
+.hint {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: $color-grey;
+  text-align: center;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: $color-text;
+}
+
+.buttons {
+  display: flex;
+  gap: 1.2rem;
+}
+

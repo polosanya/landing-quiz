@@ -1,0 +1,57 @@
+@import "@helpers/variables.scss";
+@import "@helpers/normalize.scss";
+@import "@helpers/mixins.scss";
+
+:root {
+  font-family: "Nunito", Arial, sans-serif;
+  line-height: 1.2;
+  font-weight: 700;
+  font-size: $basicSize;
+  color: $color-text;
+  background-color: $color-bg;
+
+  @include tablet {
+    font-size: $sizeL;
+  }
+
+  @include desktop {
+    font-size: $basicSize;
+  }
+
+  @include desktopL {
+    font-size: $sizeXL;
+  }
+  
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0 auto;
+  min-width: $minWidth;
+  min-height: $minHeight;
+  padding: $padding-top $padding-hor $padding-bottom;
+  max-width: $maxWidth;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+}

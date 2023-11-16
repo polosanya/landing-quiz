@@ -1,0 +1,79 @@
+@import "@helpers/variables.scss";
+@import "@helpers/mixins.scss";
+
+.screen {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+
+  @include heightL {
+    padding-top: calc(2.9rem - $padding-top);
+    gap: 6rem;
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.strong {
+  color: $color-primary;
+  font-weight: inherit;
+}
+
+.text {
+  font-size: 1.6rem;
+  font-weight: 300;
+  text-align: center;
+}
+
+.chart {
+  height: 100%;
+  width: 100%;
+
+  @include tablet {
+    width: 80%;
+  }
+
+  @include desktop {
+    width: 60%;
+  }
+
+  @include desktopL {
+    width: 70%;
+  }
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+
+  @include heightL {
+    margin-top: 2.2rem;
+  }
+}
+
+.question {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.answers {
+  display: flex;
+  width: 100%;
+  gap: 1.2rem;
+}

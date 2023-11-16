@@ -1,0 +1,24 @@
+@import '@helpers/variables.scss';
+@import '@helpers/mixins.scss';
+
+$gap: 1.2rem;
+
+.screen {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+  padding-top: calc(2.9rem - $padding-top);
+}
+
+.slideshow {
+  margin-top: calc(2rem - $gap);
+
+  @include heightL {
+    position: fixed;
+    right: $padding-hor;
+    left: $padding-hor;
+    bottom: 4rem;
+    max-width: calc($maxWidth - $padding-hor * 2);
+    margin: 0 auto;
+  }
+}

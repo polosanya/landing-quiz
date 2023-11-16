@@ -1,0 +1,22 @@
+@import '@helpers/variables.scss';
+
+.paragraph {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.text {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 300;
+  color: $color-grey;
+  text-align: start;
+}
+
+.icon {
+  flex-shrink: 0;
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
+}

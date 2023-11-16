@@ -1,0 +1,19 @@
+@import '@helpers/variables.scss';
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  padding-top: calc(2.9rem - $padding-top);
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.subtitle {
+  font-size: 1.6rem;
+  font-weight: 300;
+}

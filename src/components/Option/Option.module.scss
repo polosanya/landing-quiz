@@ -1,0 +1,55 @@
+@import "@helpers/variables";
+
+.label {
+  position: relative;
+  width: 100%;
+  padding: 0.9rem 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.2;
+  background-color: $color-snow;
+  border: 1px solid $color-secondary-stroke;
+  border-radius: 1rem;
+  transition: border-color $transition-duration;
+  cursor: pointer;
+
+  &:hover {
+    border-color: $color-primary;
+  }
+
+  &.selected {
+    border-color: $color-primary;
+  }
+}
+
+.emoji {
+  font-size: 2.3rem;
+  height: 3rem;
+  width: 3rem;
+}
+
+.input {
+  position: absolute;
+  opacity: 0;
+}
+
+.checkmark {
+  width: 1.9rem;
+  height: 1.9rem;
+  border: 1px solid $color-secondary-stroke;
+  border-radius: 0.2rem;
+  margin-left: auto;
+  transition-property: border-color, background-color;
+  transition-duration: $transition-duration;
+
+  &.selected {
+    background-image: url("@assets/checkmark.svg");
+    background-position: 50%;
+    background-size: cover;
+    background-color: $color-primary;
+    border-color: $color-primary;
+  }
+}

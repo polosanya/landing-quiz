@@ -1,0 +1,34 @@
+//layout 
+$padding-hor: 2.4rem;
+$padding-top: 1.2rem;
+$padding-bottom: 1.6rem;
+
+// colors 
+$color-primary: #31728D;
+$color-text: #111111;
+$color-secondary-text: #B7B4C1;
+$color-grey: #666666;
+$color-snow: #FFFFFF;
+$color-bg: #FAF9FF;
+$color-secondary-bg: #E8E6EF;
+$color-secondary-stroke: #D2CFDF;
+$color-error: #EF6A72;
+$color-bg-linear: linear-gradient(180deg, rgba(250, 249, 255, 0.00) 0%, $color-bg 12.16%);
+$color-bg-blur: rgba(17, 17, 17, 0.50);
+
+// breakpoints
+$width-mobileL: 480px;
+$width-desktop: 1024px;
+$width-desktopL: 1440px;
+$heightL: 580px;
+
+$basicSize: 10px;
+$sizeL: calc($basicSize * 1.5);
+$sizeXL: calc($basicSize * 1.2);
+
+$minWidth: 320px;
+$minHeight: 100vh;
+$maxWidth: 768px;
+
+//animations 
+$transition-duration: 0.3s

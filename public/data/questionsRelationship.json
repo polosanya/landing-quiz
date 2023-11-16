@@ -1,0 +1,91 @@
+{
+    "questions": [
+      {
+        "id": 1,
+        "text": "What would you like to learn?",
+        "slug": "relationship-like-to-learn-1",
+        "options": [
+          {
+            "id": 1, 
+            "slug": "skill-1-relationship",
+            "text": "Skill1_relationship",
+            "emoji": "0x1f64c"
+          },
+          {
+            "id": 2, 
+            "slug": "skill-2-relationship",
+            "text": "Skill2_relationship",
+            "emoji": "0x1f979"
+          },
+          {
+            "id": 3, 
+            "slug": "skill-3-relationship",
+            "text": "Skill3_relationship",
+            "emoji": "0x26A1"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "text": "What would you like to learn?",
+        "slug": "relationship-like-to-learn-2",
+        "options": [
+          {
+            "id": 1, 
+            "slug": "skill-1-relationship",
+            "text": "Skill1_relationship",
+            "emoji": "0x1f64c"
+          },
+          {
+            "id": 2, 
+            "slug": "skill-2-relationship",
+            "text": "Skill2_relationship",
+            "emoji": "0x1f979"
+          },
+          {
+            "id": 3, 
+            "slug": "skill-3-relationship",
+            "text": "Skill3_relationship",
+            "emoji": "0x26A1"
+          },
+          {
+            "id": 4, 
+            "slug": "skill-4-relationship",
+            "text": "Skill4_relationship",
+            "emoji": "0x1f60c"
+          },
+          {
+            "id": 5, 
+            "slug": "skill-5-relationship",
+            "text": "Skill5_relationship",
+            "emoji": "0x1f44d"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "text": "What would you like to learn?",
+        "slug": "relationship-like-to-learn-3",
+        "options": [
+          {
+            "id": 1, 
+            "slug": "skill-1-relationship",
+            "text": "Skill1_relationship",
+            "emoji": "0x1f64c"
+          },
+          {
+            "id": 2, 
+            "slug": "skill-2-relationship",
+            "text": "Skill2_relationship",
+            "emoji": "0x1f979"
+          },
+          {
+            "id": 3, 
+            "slug": "skill-3-relationship",
+            "text": "Skill3_relationship",
+            "emoji": "0x26A1"
+          }
+        ]
+      }
+    ]
+  }
