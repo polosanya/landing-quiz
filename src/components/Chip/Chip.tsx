@@ -8,7 +8,7 @@ type Props = {
 
 const Chip: FC<Props> = ({ title, className = '' }) => {
   return (
-    <div className={`${styles.Chip} ${className}`}>
+    <div className={`${styles.chip} ${className}`}>
       {title}
     </div>
   );

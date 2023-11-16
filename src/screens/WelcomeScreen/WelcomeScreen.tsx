@@ -39,8 +39,8 @@ const WelcomeScreen: FC = () => {
         <h2 className={styles.question}>What is your relationship status?</h2>
 
         <div className={styles.answers}>
-          <Select text={MaritalStatus.Single} onClick={changeStatus} />
-          <Select text={MaritalStatus.Relation} onClick={changeStatus} />
+          <Select text={MaritalStatus.Single} onClick={() => changeStatus(MaritalStatus.Single)} />
+          <Select text={MaritalStatus.Relation} onClick={() => changeStatus(MaritalStatus.Relation)} />
         </div>
       </div>
     </div>

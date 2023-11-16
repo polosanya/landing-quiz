@@ -23,7 +23,7 @@ const Input: FC<Props> = ({
 
   const handleTouched = () => {
     setIsTouched(true);
-  }
+  };
 
   return (
     <label className={styles.label}>

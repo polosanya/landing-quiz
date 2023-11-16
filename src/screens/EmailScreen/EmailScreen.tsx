@@ -11,7 +11,6 @@ import { useQuizContext } from "src/context/QuizContext";
 const EmailScreen = () => {
   const navigate = useNavigate();
   const { email, updateEmail } = useQuizContext();
-  // const [email, setEmail] = useState("");
   const [error, setError] = useState("");
 
   let validationTimeout: number;

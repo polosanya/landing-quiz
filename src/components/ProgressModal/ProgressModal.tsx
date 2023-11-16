@@ -20,7 +20,10 @@ const ProgressModal: FC<Props> = ({
   const [count, setCount] = useState(0);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const { updateAnswersData } = useQuizContext();
-  const percentDuration = useMemo(() => progressDuration / 100, [progressDuration]);
+  const percentDuration = useMemo(
+    () => progressDuration / 100,
+    [progressDuration]
+  );
 
   useEffect(() => {
     if (!isActive) return;

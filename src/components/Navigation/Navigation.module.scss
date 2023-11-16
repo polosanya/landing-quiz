@@ -1,4 +1,4 @@
-@import '@helpers/variables.scss';
+@import "@helpers/variables.scss";
 
 .nav {
   display: flex;
@@ -17,7 +17,7 @@
   font-weight: 700;
 
   & .current {
-    color: $color-primary
+    color: $color-primary;
   }
 
   & .total {
